@@ -23,7 +23,7 @@ export default function Home() {
       {/* Hero Section with Parallax */}
       <section
         ref={heroRef}
-        className="relative h-screen flex items-center justify-center overflow-hidden grain"
+        className="relative min-h-screen flex items-center justify-center overflow-hidden grain pt-20"
       >
         {/* Parallax Background */}
         <motion.div
