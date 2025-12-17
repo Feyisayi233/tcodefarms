@@ -1,0 +1,106 @@
+"use client";
+
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import * as z from "zod";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { useState } from "react";
+import { Toast } from "@/components/ui/toast";
+
+const emailSchema = z.object({
+  email: z.string().email("Please enter a valid email address"),
+});
+
+type EmailFormData = z.infer<typeof emailSchema>;
+
+interface EmailSubscriptionFormProps {
+  productName: string;
+}
+
+export function EmailSubscriptionForm({ productName }: EmailSubscriptionFormProps) {
+  const [showToast, setShowToast] = useState(false);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+    reset,
+  } = useForm<EmailFormData>({
+    resolver: zodResolver(emailSchema),
+  });
+
+  const onSubmit = async (data: EmailFormData) => {
+    try {
+      // Send to Formspree
+      const formspreeId = process.env.NEXT_PUBLIC_FORMSPREE_SUBSCRIPTION_FORM_ID;
+      if (formspreeId) {
+        await fetch(`https://formspree.io/f/${formspreeId}`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify({
+            email: data.email,
+            product: productName,
+            _subject: `Email Subscription: ${productName}`,
+          }),
+        });
+      }
+
+      // Backup to localStorage
+      if (typeof window !== "undefined") {
+        const subscriptions = JSON.parse(
+          localStorage.getItem("emailSubscriptions") || "[]"
+        );
+        subscriptions.push({
+          email: data.email,
+          product: productName,
+          date: new Date().toISOString(),
+        });
+        localStorage.setItem("emailSubscriptions", JSON.stringify(subscriptions));
+      }
+
+      setShowToast(true);
+      reset();
+    } catch (error) {
+      console.error("Failed to submit subscription form:", error);
+      // Still show success to user even if Formspree fails
+      // (localStorage backup will preserve the data)
+      setShowToast(true);
+      reset();
+    }
+  };
+
+  return (
+    <>
+      <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+        <div>
+          <Input
+            type="email"
+            placeholder="Enter your email address"
+            {...register("email")}
+            className="w-full bg-white/5 border-gray-700 text-white placeholder:text-gray-500 focus:border-[#008751]"
+          />
+          {errors.email && (
+            <p className="mt-1 text-sm text-red-400">{errors.email.message}</p>
+          )}
+        </div>
+        <Button
+          type="submit"
+          disabled={isSubmitting}
+          className="w-full bg-gradient-to-r from-[#008751] to-[#00b366] hover:from-[#00b366] hover:to-[#008751] text-white border-0"
+        >
+          {isSubmitting ? "Subscribing..." : "Subscribe to be notified"}
+        </Button>
+      </form>
+      {showToast && (
+        <Toast
+          message="Thank you! We&apos;ll notify you when this product is available."
+          onClose={() => setShowToast(false)}
+        />
+      )}
+    </>
+  );
+}
+
