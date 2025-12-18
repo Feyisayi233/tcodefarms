@@ -7,7 +7,7 @@ import { Phone, Mail, MapPin } from "lucide-react";
 
 export function Footer() {
   return (
-    <footer className="bg-gradient-to-b from-[#0a0a0a] to-black relative grain border-t border-gray-800">
+    <footer className="bg-[#008751] relative grain border-t border-[#006B3F]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           <motion.div
@@ -39,12 +39,12 @@ export function Footer() {
                   }}
                 />
               </div>
-              <h3 className="text-2xl font-bold gradient-text">Tcode Farms</h3>
+              <h3 className="text-2xl font-bold text-white">Tcode Farms</h3>
             </Link>
-            <p className="text-gray-400 mb-4 leading-relaxed">
+            <p className="text-white/80 mb-4 leading-relaxed">
               From Hatch to Harvest – We Deliver Excellence
             </p>
-            <p className="text-sm text-gray-500">
+            <p className="text-sm text-white/60">
               One of the largest layer farms in Lagos State
             </p>
           </motion.div>
@@ -67,7 +67,7 @@ export function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-gray-400 hover:text-gold transition-colors inline-block hover:translate-x-2 transition-transform"
+                    className="text-white/80 hover:text-white transition-colors inline-block hover:translate-x-2 transition-transform"
                   >
                     {link.label}
                   </Link>
@@ -85,34 +85,34 @@ export function Footer() {
             <h4 className="font-semibold mb-6 text-white text-lg">Contact Information</h4>
             <ul className="space-y-4 text-sm">
               <li className="flex items-start gap-3">
-                <MapPin className="h-5 w-5 text-[#008751] mt-0.5 flex-shrink-0" />
-                <span className="text-gray-400">
+                <MapPin className="h-5 w-5 text-white mt-0.5 flex-shrink-0" />
+                <span className="text-white/80">
                   Oriokuta, Imota, Lagos State, Nigeria
                 </span>
               </li>
               <li className="flex items-center gap-3">
-                <Phone className="h-5 w-5 text-[#008751] flex-shrink-0" />
+                <Phone className="h-5 w-5 text-white flex-shrink-0" />
                 <a
                   href="tel:+2349158445714"
-                  className="text-gray-400 hover:text-gold transition-colors"
+                  className="text-white/80 hover:text-white transition-colors"
                 >
                   +234 915 844 5714
                 </a>
               </li>
               <li className="flex items-center gap-3">
-                <Phone className="h-5 w-5 text-[#008751] flex-shrink-0" />
+                <Phone className="h-5 w-5 text-white flex-shrink-0" />
                 <a
                   href="tel:+2348067240887"
-                  className="text-gray-400 hover:text-gold transition-colors"
+                  className="text-white/80 hover:text-white transition-colors"
                 >
                   +234 806 724 0887
                 </a>
               </li>
               <li className="flex items-center gap-3">
-                <Mail className="h-5 w-5 text-[#008751] flex-shrink-0" />
+                <Mail className="h-5 w-5 text-white flex-shrink-0" />
                 <a
                   href="mailto:tcodefarminc@gmail.com"
-                  className="text-gray-400 hover:text-gold transition-colors"
+                  className="text-white/80 hover:text-white transition-colors"
                 >
                   tcodefarminc@gmail.com
                 </a>
@@ -121,8 +121,8 @@ export function Footer() {
           </motion.div>
         </div>
 
-        <div className="mt-12 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-sm text-gray-500">
+        <div className="mt-12 pt-8 border-t border-white/20 flex flex-col md:flex-row justify-between items-center">
+          <p className="text-sm text-white/60">
             © 2025 Tcode Farms. All rights reserved.
           </p>
           <div className="flex gap-6 mt-4 md:mt-0">
@@ -130,7 +130,7 @@ export function Footer() {
               <a
                 key={social}
                 href="#"
-                className="text-gray-500 hover:text-gold transition-colors text-sm"
+                className="text-white/60 hover:text-white transition-colors text-sm"
                 aria-label={social}
               >
                 {social}

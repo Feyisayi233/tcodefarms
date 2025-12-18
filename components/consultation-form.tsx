@@ -99,22 +99,22 @@ export function ConsultationForm({ open, onOpenChange }: ConsultationFormProps) 
           </DialogHeader>
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
             <div>
-              <label htmlFor="name" className="block text-sm font-medium mb-2 text-gray-300">
+              <label htmlFor="name" className="block text-sm font-medium mb-2 text-gray-700">
                 Name *
               </label>
               <Input
                 id="name"
                 {...register("name")}
                 placeholder="Your full name"
-                className="bg-white/5 border-gray-700 text-white placeholder:text-gray-500 focus:border-[#008751]"
+                className="bg-gray-50 border-gray-300 text-gray-900 placeholder:text-gray-400 focus:border-[#008751] focus:ring-[#008751]"
               />
               {errors.name && (
-                <p className="mt-1 text-sm text-red-400">{errors.name.message}</p>
+                <p className="mt-1 text-sm text-red-500">{errors.name.message}</p>
               )}
             </div>
 
             <div>
-              <label htmlFor="phone" className="block text-sm font-medium mb-2 text-gray-300">
+              <label htmlFor="phone" className="block text-sm font-medium mb-2 text-gray-700">
                 Phone Number *
               </label>
               <Input
@@ -122,32 +122,32 @@ export function ConsultationForm({ open, onOpenChange }: ConsultationFormProps) 
                 type="tel"
                 {...register("phone")}
                 placeholder="+234 800 000 0000"
-                className="bg-white/5 border-gray-700 text-white placeholder:text-gray-500 focus:border-[#008751]"
+                className="bg-gray-50 border-gray-300 text-gray-900 placeholder:text-gray-400 focus:border-[#008751] focus:ring-[#008751]"
               />
               {errors.phone && (
-                <p className="mt-1 text-sm text-red-400">{errors.phone.message}</p>
+                <p className="mt-1 text-sm text-red-500">{errors.phone.message}</p>
               )}
             </div>
 
             <div>
-              <label htmlFor="farmSize" className="block text-sm font-medium mb-2 text-gray-300">
+              <label htmlFor="farmSize" className="block text-sm font-medium mb-2 text-gray-700">
                 Farm Size *
               </label>
               <Input
                 id="farmSize"
                 {...register("farmSize")}
                 placeholder="e.g., 1000 birds, 5000 birds"
-                className="bg-white/5 border-gray-700 text-white placeholder:text-gray-500 focus:border-[#008751]"
+                className="bg-gray-50 border-gray-300 text-gray-900 placeholder:text-gray-400 focus:border-[#008751] focus:ring-[#008751]"
               />
               {errors.farmSize && (
-                <p className="mt-1 text-sm text-red-400">
+                <p className="mt-1 text-sm text-red-500">
                   {errors.farmSize.message}
                 </p>
               )}
             </div>
 
             <div>
-              <label htmlFor="message" className="block text-sm font-medium mb-2 text-gray-300">
+              <label htmlFor="message" className="block text-sm font-medium mb-2 text-gray-700">
                 Message (Optional)
               </label>
               <Textarea
@@ -155,7 +155,7 @@ export function ConsultationForm({ open, onOpenChange }: ConsultationFormProps) 
                 {...register("message")}
                 placeholder="Tell us about your farm setup needs..."
                 rows={4}
-                className="bg-white/5 border-gray-700 text-white placeholder:text-gray-500 focus:border-[#008751]"
+                className="bg-gray-50 border-gray-300 text-gray-900 placeholder:text-gray-400 focus:border-[#008751] focus:ring-[#008751]"
               />
             </div>
 

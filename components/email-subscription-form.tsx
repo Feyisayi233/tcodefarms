@@ -80,10 +80,10 @@ export function EmailSubscriptionForm({ productName }: EmailSubscriptionFormProp
             type="email"
             placeholder="Enter your email address"
             {...register("email")}
-            className="w-full bg-white/5 border-gray-700 text-white placeholder:text-gray-500 focus:border-[#008751]"
+            className="w-full bg-white border-gray-300 text-gray-900 placeholder:text-gray-400 focus:border-[#008751] focus:ring-[#008751]"
           />
           {errors.email && (
-            <p className="mt-1 text-sm text-red-400">{errors.email.message}</p>
+            <p className="mt-1 text-sm text-red-500">{errors.email.message}</p>
           )}
         </div>
         <Button

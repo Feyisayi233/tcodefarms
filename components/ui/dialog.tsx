@@ -33,7 +33,7 @@ const DialogContent = React.forwardRef<
   <div
     ref={ref}
     className={cn(
-      "glass-dark rounded-2xl shadow-2xl p-6 md:p-8 max-h-[90vh] overflow-y-auto border border-gray-700",
+      "bg-white rounded-2xl shadow-2xl p-6 md:p-8 max-h-[90vh] overflow-y-auto border border-[#008751]/20",
       className
     )}
     {...props}
@@ -41,7 +41,7 @@ const DialogContent = React.forwardRef<
     {onClose && (
       <button
         onClick={onClose}
-        className="absolute top-4 right-4 rounded-sm opacity-70 text-gray-400 hover:text-white hover:opacity-100 transition-all focus:outline-none focus:ring-2 focus:ring-[#008751] focus:ring-offset-2 focus:ring-offset-transparent"
+        className="absolute top-4 right-4 rounded-sm opacity-70 text-gray-500 hover:text-gray-900 hover:opacity-100 transition-all focus:outline-none focus:ring-2 focus:ring-[#008751] focus:ring-offset-2"
       >
         <X className="h-5 w-5" />
         <span className="sr-only">Close</span>
@@ -81,7 +81,7 @@ const DialogDescription = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <p
     ref={ref}
-    className={cn("text-sm text-gray-400", className)}
+    className={cn("text-sm text-gray-600", className)}
     {...props}
   />
 ));

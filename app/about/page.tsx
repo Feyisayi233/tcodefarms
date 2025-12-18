@@ -7,24 +7,24 @@ import { AnimatedCounter } from "@/components/animated-counter";
 
 export default function AboutPage() {
   return (
-    <div className="bg-[#0a0a0a] min-h-screen">
+    <div className="bg-white min-h-screen">
       {/* Hero Section */}
-      <section className="relative py-24 bg-gradient-to-b from-[#008751]/20 to-transparent grain overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(0,135,81,0.1),transparent_50%)]" />
+      <section className="relative py-24 pt-32 bg-gradient-to-b from-[#008751] to-[#006B3F] grain overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.1),transparent_50%)]" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="hero-title text-5xl md:text-6xl lg:text-7xl font-bold mb-6"
+            className="hero-title text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-white"
           >
-            <span className="gradient-text">About Tcode Farms</span>
+            About Tcode Farms
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-xl md:text-2xl text-gray-300 gradient-text-gold font-semibold gold-accent"
+            className="text-xl md:text-2xl text-white/90 font-semibold gold-accent"
           >
             From Hatch to Harvest – We Deliver Excellence
           </motion.p>
@@ -32,7 +32,7 @@ export default function AboutPage() {
       </section>
 
       {/* Main Content */}
-      <section className="py-24 grain relative">
+      <section className="py-24 grain relative bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
             <motion.div
@@ -42,19 +42,19 @@ export default function AboutPage() {
               transition={{ duration: 0.8 }}
             >
               <h2 className="text-4xl md:text-5xl font-bold mb-6 gradient-text">Our Story</h2>
-              <p className="text-gray-300 text-lg mb-4 leading-relaxed">
+              <p className="text-gray-600 text-lg mb-4 leading-relaxed">
                 Tcode Farms has been a cornerstone of the poultry industry in Lagos
-                State for over <span className="text-gold font-semibold"><AnimatedCounter value={15} suffix=" years" className="text-gold" /></span>. What started as a small operation has grown
-                into one of the largest layer farms in the state, with <span className="text-gold font-semibold"><AnimatedCounter value={7000} suffix=" layers" className="text-gold" /></span>
+                State for over <span className="text-[#008751] font-semibold"><AnimatedCounter value={15} suffix=" years" className="text-[#008751]" /></span>. What started as a small operation has grown
+                into one of the largest layer farms in the state, with <span className="text-[#008751] font-semibold"><AnimatedCounter value={7000} suffix=" layers" className="text-[#008751]" /></span>
                 producing high-quality eggs for the Lagos market.
               </p>
-              <p className="text-gray-300 text-lg mb-4 leading-relaxed">
+              <p className="text-gray-600 text-lg mb-4 leading-relaxed">
                 Our commitment to excellence, quality, and sustainable farming
                 practices has made us a trusted name in the poultry industry. We
                 take pride in every aspect of our operation, from the care of our
                 birds to the delivery of fresh eggs to our customers.
               </p>
-              <p className="text-gray-300 text-lg leading-relaxed">
+              <p className="text-gray-600 text-lg leading-relaxed">
                 Located in Oriokuta, Imota, Lagos State, we are strategically
                 positioned to serve the Lagos market efficiently, ensuring that our
                 products reach customers fresh and in perfect condition.
@@ -86,7 +86,7 @@ export default function AboutPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="glass rounded-3xl p-8 md:p-12 mb-20"
+            className="bg-white rounded-3xl p-8 md:p-12 mb-20 shadow-lg border border-[#008751]/10"
           >
             <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center gradient-text">
               Our Achievements
@@ -104,11 +104,11 @@ export default function AboutPage() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: idx * 0.1 }}
                   whileHover={{ scale: 1.05, y: -5 }}
-                  className="text-center glass-dark rounded-2xl p-6 hover-lift"
+                  className="text-center bg-[#008751] rounded-2xl p-6 hover-lift"
                 >
-                  <achievement.icon className="h-12 w-12 text-[#008751] mx-auto mb-4" />
+                  <achievement.icon className="h-12 w-12 text-white mx-auto mb-4" />
                   <h3 className="text-xl font-bold text-white mb-2">{achievement.title}</h3>
-                  <p className="text-gray-400">{achievement.desc}</p>
+                  <p className="text-white/80">{achievement.desc}</p>
                 </motion.div>
               ))}
             </div>
@@ -136,12 +136,12 @@ export default function AboutPage() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: idx * 0.1 }}
-                    className="flex items-start gap-4 glass rounded-xl p-4 hover-lift"
+                    className="flex items-start gap-4 bg-white rounded-xl p-4 hover-lift shadow-md border border-[#008751]/10"
                   >
                     <detail.icon className="h-6 w-6 text-[#008751] flex-shrink-0 mt-0.5" />
                     <div>
-                      <strong className="text-gold text-sm">{detail.label}:</strong>
-                      <p className="text-gray-300">{detail.value}</p>
+                      <strong className="text-[#008751] text-sm">{detail.label}:</strong>
+                      <p className="text-gray-700">{detail.value}</p>
                     </div>
                   </motion.li>
                 ))}
@@ -191,12 +191,12 @@ export default function AboutPage() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: idx * 0.1 }}
                   whileHover={{ scale: 1.02, y: -5 }}
-                  className="flex items-start gap-4 glass rounded-2xl p-6 hover-lift"
+                  className="flex items-start gap-4 bg-white rounded-2xl p-6 hover-lift shadow-md border border-[#008751]/10"
                 >
                   <CheckCircle2 className="h-6 w-6 text-[#008751] flex-shrink-0 mt-1" />
                   <div>
-                    <h3 className="text-xl font-semibold text-white mb-2">{value.title}</h3>
-                    <p className="text-gray-400 leading-relaxed">{value.desc}</p>
+                    <h3 className="text-xl font-semibold text-gray-900 mb-2">{value.title}</h3>
+                    <p className="text-gray-600 leading-relaxed">{value.desc}</p>
                   </div>
                 </motion.div>
               ))}

@@ -68,24 +68,24 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="bg-[#0a0a0a] min-h-screen">
+    <div className="bg-white min-h-screen">
       {/* Hero Section */}
-      <section className="relative py-24 bg-gradient-to-b from-[#008751]/20 to-transparent grain overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(0,135,81,0.1),transparent_50%)]" />
+      <section className="relative py-24 pt-32 bg-gradient-to-b from-[#008751] to-[#006B3F] grain overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.1),transparent_50%)]" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="hero-title text-5xl md:text-6xl lg:text-7xl font-bold mb-6"
+            className="hero-title text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-white"
           >
-            <span className="gradient-text">Contact Us</span>
+            Contact Us
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-xl md:text-2xl text-gray-300 gradient-text-gold font-semibold gold-accent"
+            className="text-xl md:text-2xl text-white/90 font-semibold gold-accent"
           >
             Get in touch with Tcode Farms
           </motion.p>
@@ -93,7 +93,7 @@ export default function ContactPage() {
       </section>
 
       {/* Contact Section */}
-      <section className="py-24 grain relative">
+      <section className="py-24 grain relative bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Contact Form */}
@@ -106,24 +106,24 @@ export default function ContactPage() {
               <h2 className="text-4xl md:text-5xl font-bold mb-8 gradient-text">
                 Send Us a Message
               </h2>
-              <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+              <form onSubmit={handleSubmit(onSubmit)} className="space-y-6 bg-white p-8 rounded-2xl shadow-lg border border-[#008751]/10">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium mb-2 text-gray-300">
+                  <label htmlFor="name" className="block text-sm font-medium mb-2 text-gray-700">
                     Name *
                   </label>
                   <Input
                     id="name"
                     {...register("name")}
                     placeholder="Your full name"
-                    className="bg-white/5 border-gray-700 text-white placeholder:text-gray-500 focus:border-[#008751]"
+                    className="bg-gray-50 border-gray-300 text-gray-900 placeholder:text-gray-400 focus:border-[#008751] focus:ring-[#008751]"
                   />
                   {errors.name && (
-                    <p className="mt-1 text-sm text-red-400">{errors.name.message}</p>
+                    <p className="mt-1 text-sm text-red-500">{errors.name.message}</p>
                   )}
                 </div>
 
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium mb-2 text-gray-300">
+                  <label htmlFor="email" className="block text-sm font-medium mb-2 text-gray-700">
                     Email *
                   </label>
                   <Input
@@ -131,15 +131,15 @@ export default function ContactPage() {
                     type="email"
                     {...register("email")}
                     placeholder="your.email@example.com"
-                    className="bg-white/5 border-gray-700 text-white placeholder:text-gray-500 focus:border-[#008751]"
+                    className="bg-gray-50 border-gray-300 text-gray-900 placeholder:text-gray-400 focus:border-[#008751] focus:ring-[#008751]"
                   />
                   {errors.email && (
-                    <p className="mt-1 text-sm text-red-400">{errors.email.message}</p>
+                    <p className="mt-1 text-sm text-red-500">{errors.email.message}</p>
                   )}
                 </div>
 
                 <div>
-                  <label htmlFor="phone" className="block text-sm font-medium mb-2 text-gray-300">
+                  <label htmlFor="phone" className="block text-sm font-medium mb-2 text-gray-700">
                     Phone Number *
                   </label>
                   <Input
@@ -147,15 +147,15 @@ export default function ContactPage() {
                     type="tel"
                     {...register("phone")}
                     placeholder="+234 800 000 0000"
-                    className="bg-white/5 border-gray-700 text-white placeholder:text-gray-500 focus:border-[#008751]"
+                    className="bg-gray-50 border-gray-300 text-gray-900 placeholder:text-gray-400 focus:border-[#008751] focus:ring-[#008751]"
                   />
                   {errors.phone && (
-                    <p className="mt-1 text-sm text-red-400">{errors.phone.message}</p>
+                    <p className="mt-1 text-sm text-red-500">{errors.phone.message}</p>
                   )}
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium mb-2 text-gray-300">
+                  <label htmlFor="message" className="block text-sm font-medium mb-2 text-gray-700">
                     Message *
                   </label>
                   <Textarea
@@ -163,10 +163,10 @@ export default function ContactPage() {
                     {...register("message")}
                     placeholder="Your message..."
                     rows={6}
-                    className="bg-white/5 border-gray-700 text-white placeholder:text-gray-500 focus:border-[#008751]"
+                    className="bg-gray-50 border-gray-300 text-gray-900 placeholder:text-gray-400 focus:border-[#008751] focus:ring-[#008751]"
                   />
                   {errors.message && (
-                    <p className="mt-1 text-sm text-red-400">
+                    <p className="mt-1 text-sm text-red-500">
                       {errors.message.message}
                     </p>
                   )}
@@ -207,24 +207,24 @@ export default function ContactPage() {
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: idx * 0.1 }}
                     whileHover={{ scale: 1.02, y: -5 }}
-                    className="glass rounded-2xl p-6 hover-lift"
+                    className="bg-white rounded-2xl p-6 hover-lift shadow-md border border-[#008751]/10"
                   >
                     <div className="flex items-start gap-4">
                       <item.icon className="h-6 w-6 text-[#008751] flex-shrink-0 mt-1" />
                       <div>
-                        <h3 className="font-semibold text-white mb-2">{item.title}</h3>
+                        <h3 className="font-semibold text-gray-900 mb-2">{item.title}</h3>
                         {item.content && (
                           item.href ? (
                             <a
                               href={item.href}
                               target={item.href.startsWith("http") ? "_blank" : undefined}
                               rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                              className="text-gray-400 hover:text-gold transition-colors"
+                              className="text-gray-600 hover:text-[#008751] transition-colors"
                             >
                               {item.content}
                             </a>
                           ) : (
-                            <p className="text-gray-400">{item.content}</p>
+                            <p className="text-gray-600">{item.content}</p>
                           )
                         )}
                         {item.links && (
@@ -233,7 +233,7 @@ export default function ContactPage() {
                               <a
                                 key={link}
                                 href={`tel:${link.replace(/\s/g, "")}`}
-                                className="block text-gray-400 hover:text-gold transition-colors"
+                                className="block text-gray-600 hover:text-[#008751] transition-colors"
                               >
                                 {link}
                               </a>
@@ -251,11 +251,11 @@ export default function ContactPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.4 }}
-                className="mt-8 glass rounded-2xl p-6"
+                className="mt-8 bg-[#008751] rounded-2xl p-6"
               >
                 <h3 className="font-semibold text-white mb-3">Business Hours</h3>
-                <p className="text-gray-400">Monday - Saturday: 7:00 AM - 6:00 PM</p>
-                <p className="text-gray-400">Sunday: Closed</p>
+                <p className="text-white/80">Monday - Saturday: 7:00 AM - 6:00 PM</p>
+                <p className="text-white/80">Sunday: Closed</p>
               </motion.div>
             </motion.div>
           </div>

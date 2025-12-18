@@ -35,12 +35,12 @@ export function Navigation() {
       transition={{ duration: 0.6 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled 
-          ? "glass-dark shadow-2xl border-b border-gold/20 backdrop-blur-xl" 
+          ? "bg-white shadow-lg border-b border-[#008751]/10" 
           : "bg-transparent"
       }`}
     >
       {/* Gradient border */}
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#008751]/30 to-transparent" />
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
@@ -50,7 +50,7 @@ export function Navigation() {
               whileHover={{ scale: 1.05 }}
               className="relative"
             >
-              <div className="absolute inset-0 bg-gold/20 blur-xl rounded-full" />
+              <div className="absolute inset-0 bg-[#008751]/20 blur-xl rounded-full" />
               <div className="relative w-12 h-12 flex items-center justify-center">
                 {/* Try logo.png first, then logo.svg, with fallback */}
                 <div className="relative w-full h-full">
@@ -80,7 +80,7 @@ export function Navigation() {
             </motion.div>
             <motion.span
               whileHover={{ scale: 1.05 }}
-              className="text-2xl md:text-3xl font-bold gradient-text tracking-tight"
+              className={`text-2xl md:text-3xl font-bold tracking-tight ${scrolled ? 'text-[#008751]' : 'text-white'}`}
             >
               Tcode Farms
             </motion.span>
@@ -99,17 +99,17 @@ export function Navigation() {
                   href={item.href}
                   className={`relative px-4 py-2 transition-all duration-300 font-medium text-sm uppercase tracking-widest group ${
                     pathname === item.href
-                      ? "text-gold"
-                      : "text-gray-300 hover:text-gold"
+                      ? "text-[#008751]"
+                      : scrolled ? "text-gray-700 hover:text-[#008751]" : "text-white/90 hover:text-white"
                   }`}
                 >
                   <span className="relative z-10">{item.label}</span>
                   {/* Glowing underline */}
-                  <span className={`absolute bottom-0 left-0 h-[2px] bg-gradient-to-r from-[#008751] to-gold transition-all duration-500 shadow-[0_0_10px_rgba(255,215,0,0.5)] ${
+                  <span className={`absolute bottom-0 left-0 h-[2px] bg-gradient-to-r from-[#008751] to-[#00b366] transition-all duration-500 ${
                     pathname === item.href ? "w-full" : "w-0 group-hover:w-full"
                   }`} />
                   {/* Background glow on hover */}
-                  <span className="absolute inset-0 bg-gold/5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-sm" />
+                  <span className="absolute inset-0 bg-[#008751]/5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </Link>
               </motion.div>
             ))}
@@ -130,7 +130,9 @@ export function Navigation() {
           {/* Mobile menu button */}
           <button
             type="button"
-            className="md:hidden p-2 rounded-lg text-gray-200 hover:text-gold hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-gold transition-all"
+            className={`md:hidden p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#008751] transition-all ${
+              scrolled ? "text-gray-700 hover:text-[#008751] hover:bg-[#008751]/10" : "text-white hover:bg-white/10"
+            }`}
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle menu"
             aria-expanded={mobileMenuOpen}
@@ -151,9 +153,8 @@ export function Navigation() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.3 }}
-              className="md:hidden py-8 border-t border-gold/20 glass-dark backdrop-blur-2xl rounded-b-3xl shadow-2xl relative overflow-hidden"
+              className="md:hidden py-8 border-t border-[#008751]/20 bg-white rounded-b-3xl shadow-2xl relative overflow-hidden"
             >
-              <div className="absolute inset-0 bg-black/60 backdrop-blur-xl" />
               <div className="relative z-10">
                 {navItems.map((item, idx) => (
                   <motion.div
@@ -166,8 +167,8 @@ export function Navigation() {
                       href={item.href}
                       className={`block py-4 px-6 transition-all rounded-lg mx-2 uppercase tracking-wider text-sm font-semibold ${
                         pathname === item.href
-                          ? "text-gold bg-gold/10 border-l-4 border-gold"
-                          : "text-gray-200 hover:text-gold hover:bg-white/5"
+                          ? "text-[#008751] bg-[#008751]/10 border-l-4 border-[#008751]"
+                          : "text-gray-700 hover:text-[#008751] hover:bg-[#008751]/5"
                       }`}
                       onClick={() => setMobileMenuOpen(false)}
                     >
@@ -175,7 +176,7 @@ export function Navigation() {
                     </Link>
                   </motion.div>
                 ))}
-                <div className="mt-6 pt-6 border-t border-gold/20 px-4">
+                <div className="mt-6 pt-6 border-t border-[#008751]/20 px-4">
                   <motion.a
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
