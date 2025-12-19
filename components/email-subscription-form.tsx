@@ -76,14 +76,22 @@ export function EmailSubscriptionForm({ productName }: EmailSubscriptionFormProp
     <>
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
         <div>
+          <label htmlFor="email-subscription" className="sr-only">
+            Email address for {productName} subscription
+          </label>
           <Input
+            id="email-subscription"
             type="email"
             placeholder="Enter your email address"
             {...register("email")}
             className="w-full bg-white border-gray-300 text-gray-900 placeholder:text-gray-400 focus:border-[#008751] focus:ring-[#008751]"
+            aria-invalid={errors.email ? "true" : "false"}
+            aria-describedby={errors.email ? "email-error" : undefined}
           />
           {errors.email && (
-            <p className="mt-1 text-sm text-red-500">{errors.email.message}</p>
+            <p id="email-error" className="mt-1 text-sm text-red-500" role="alert">
+              {errors.email.message}
+            </p>
           )}
         </div>
         <Button

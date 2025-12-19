@@ -23,11 +23,11 @@ export const Toast = ({ message, onClose, type = "success" }: ToastProps) => {
         className={cn(
           "flex items-center gap-2 rounded-lg border px-4 py-3 shadow-lg",
           type === "success"
-            ? "bg-green-50 border-green-200 text-green-800"
+            ? "bg-white border-[#008751]/30 text-[#008751] shadow-[#008751]/20"
             : "bg-red-50 border-red-200 text-red-800"
         )}
       >
-        <CheckCircle2 className="h-5 w-5" />
+        <CheckCircle2 className={cn("h-5 w-5", type === "success" ? "text-[#008751]" : "text-red-800")} />
         <p className="text-sm font-medium">{message}</p>
         <button
           onClick={onClose}
