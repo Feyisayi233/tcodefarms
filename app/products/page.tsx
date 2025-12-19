@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { EmailSubscriptionForm } from "@/components/email-subscription-form";
 import { ConsultationForm } from "@/components/consultation-form";
@@ -12,6 +12,7 @@ import { Phone, Package, CheckCircle2, Sparkles } from "lucide-react";
 const EGG_CRATE_PRICE = 4900;
 
 export default function ProductsPage() {
+  const prefersReducedMotion = useReducedMotion();
   const [consultationOpen, setConsultationOpen] = useState(false);
 
   return (
@@ -52,7 +53,7 @@ export default function ProductsPage() {
               className="relative"
             >
               <motion.div
-                animate={{
+                animate={prefersReducedMotion ? {} : {
                   boxShadow: [
                     "0 0 20px rgba(0, 135, 81, 0.3), 0 0 40px rgba(0, 135, 81, 0.2)",
                     "0 0 40px rgba(0, 135, 81, 0.6), 0 0 80px rgba(0, 135, 81, 0.4), 0 0 120px rgba(0, 135, 81, 0.2)",

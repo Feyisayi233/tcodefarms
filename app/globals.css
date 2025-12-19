@@ -122,4 +122,21 @@
     transform: translateY(-8px);
     box-shadow: 0 20px 40px rgba(0, 135, 81, 0.2);
   }
+  
+  /* Reduced Motion Support */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+    
+    .animate-float,
+    .animate-pulse-glow {
+      animation: none !important;
+    }
+  }
 }

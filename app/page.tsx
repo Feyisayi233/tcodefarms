@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { CheckCircle2, Users, Package, Award, Egg, TrendingUp } from "lucide-react";
@@ -10,12 +10,13 @@ import { AnimatedCounter } from "@/components/animated-counter";
 import { useEffect, useRef, useState } from "react";
 
 export default function Home() {
+  const prefersReducedMotion = useReducedMotion();
   const heroRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: heroRef,
     offset: ["start start", "end start"],
   });
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
+  const y = useTransform(scrollYProgress, [0, 1], prefersReducedMotion ? ["0%", "0%"] : ["0%", "50%"]);
   const opacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
 
   return (
@@ -44,18 +45,18 @@ export default function Home() {
 
         {/* Floating Animated Icons */}
         <motion.div
-          animate={{ y: [0, -20, 0], rotate: [0, 5, 0] }}
+          animate={prefersReducedMotion ? {} : { y: [0, -20, 0], rotate: [0, 5, 0] }}
           transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-20 left-10 z-10 hidden lg:block"
+          className="absolute top-20 left-4 md:left-10 z-10 hidden md:block"
         >
-          <Egg className="h-12 w-12 text-white/30" />
+          <Egg className="h-8 w-8 md:h-12 md:w-12 text-white/30" />
         </motion.div>
         <motion.div
-          animate={{ y: [0, 20, 0], rotate: [0, -5, 0] }}
+          animate={prefersReducedMotion ? {} : { y: [0, 20, 0], rotate: [0, -5, 0] }}
           transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-          className="absolute bottom-20 right-10 z-10 hidden lg:block"
+          className="absolute bottom-20 right-4 md:right-10 z-10 hidden md:block"
         >
-          <TrendingUp className="h-10 w-10 text-white/30" />
+          <TrendingUp className="h-8 w-8 md:h-10 md:w-10 text-white/30" />
         </motion.div>
 
         {/* Hero Content */}
@@ -69,7 +70,7 @@ export default function Home() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="hero-title text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-white"
+            className="hero-title text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 md:mb-6 text-white px-4"
           >
             Tcode Farms
           </motion.h1>
@@ -77,7 +78,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-xl md:text-3xl lg:text-4xl font-semibold mb-12 text-white/90 gold-accent"
+            className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-semibold mb-8 md:mb-12 text-white/90 gold-accent px-4"
           >
             From Hatch to Harvest – We Deliver Excellence
           </motion.p>
@@ -87,32 +88,32 @@ export default function Home() {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16"
+            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 mt-12 md:mt-16 px-4"
           >
             <motion.div
               whileHover={{ scale: 1.05, y: -5 }}
-              className="bg-white/95 backdrop-blur-sm rounded-2xl p-6 hover-lift shadow-lg border border-[#008751]/20"
+              className="bg-white/95 backdrop-blur-sm rounded-2xl p-4 md:p-6 hover-lift shadow-lg border border-[#008751]/20"
             >
-              <Award className="h-10 w-10 text-[#008751] mx-auto mb-4 animate-float" />
-              <p className="text-gray-700 font-medium mb-2 text-sm md:text-base">
+              <Award className="h-8 w-8 md:h-10 md:w-10 text-[#008751] mx-auto mb-3 md:mb-4 animate-float" />
+              <p className="text-gray-700 font-medium mb-2 text-xs sm:text-sm md:text-base text-center">
                 One of the largest layer farms in Lagos State
               </p>
             </motion.div>
             <motion.div
               whileHover={{ scale: 1.05, y: -5 }}
-              className="bg-white/95 backdrop-blur-sm rounded-2xl p-6 hover-lift shadow-lg border border-[#008751]/20"
+              className="bg-white/95 backdrop-blur-sm rounded-2xl p-4 md:p-6 hover-lift shadow-lg border border-[#008751]/20"
             >
-              <Package className="h-10 w-10 text-[#008751] mx-auto mb-4 animate-float" />
-              <p className="text-gray-700 font-medium mb-2 text-sm md:text-base">
+              <Package className="h-8 w-8 md:h-10 md:w-10 text-[#008751] mx-auto mb-3 md:mb-4 animate-float" />
+              <p className="text-gray-700 font-medium mb-2 text-xs sm:text-sm md:text-base text-center">
                 Supplies <AnimatedCounter value={200} suffix=" crates" className="text-[#008751] font-bold" /> daily to Lagos
               </p>
             </motion.div>
             <motion.div
               whileHover={{ scale: 1.05, y: -5 }}
-              className="bg-white/95 backdrop-blur-sm rounded-2xl p-6 hover-lift shadow-lg border border-[#008751]/20"
+              className="bg-white/95 backdrop-blur-sm rounded-2xl p-4 md:p-6 hover-lift shadow-lg border border-[#008751]/20 sm:col-span-2 md:col-span-1"
             >
-              <Users className="h-10 w-10 text-[#008751] mx-auto mb-4 animate-float" />
-              <p className="text-gray-700 font-medium mb-2 text-sm md:text-base">
+              <Users className="h-8 w-8 md:h-10 md:w-10 text-[#008751] mx-auto mb-3 md:mb-4 animate-float" />
+              <p className="text-gray-700 font-medium mb-2 text-xs sm:text-sm md:text-base text-center">
                 <AnimatedCounter value={15} suffix=" years" className="text-[#008751] font-bold" /> in business
               </p>
             </motion.div>
@@ -137,13 +138,13 @@ export default function Home() {
 
         {/* Scroll Indicator */}
         <motion.div
-          animate={{ y: [0, 10, 0] }}
+          animate={prefersReducedMotion ? {} : { y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
           className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10"
         >
           <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center">
             <motion.div
-              animate={{ y: [0, 12, 0] }}
+              animate={prefersReducedMotion ? {} : { y: [0, 12, 0] }}
               transition={{ duration: 2, repeat: Infinity }}
               className="w-1.5 h-1.5 bg-white rounded-full mt-2"
             />
