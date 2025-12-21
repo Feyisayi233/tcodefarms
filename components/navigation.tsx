@@ -42,8 +42,8 @@ export function Navigation() {
       {/* Gradient border */}
       <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#008751]/30 to-transparent" />
       
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
+      <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-16 sm:h-20">
           {/* Enhanced Logo */}
           <Link href="/" className="flex items-center group gap-3">
             <motion.div
@@ -51,7 +51,7 @@ export function Navigation() {
               className="relative"
             >
               <div className="absolute inset-0 bg-[#008751]/20 blur-xl rounded-full" />
-              <div className="relative w-12 h-12 flex items-center justify-center">
+              <div className="relative w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center">
                 {/* Try logo.png first, then logo.svg, with fallback */}
                 <div className="relative w-full h-full">
                   <Image
@@ -80,14 +80,14 @@ export function Navigation() {
             </motion.div>
             <motion.span
               whileHover={{ scale: 1.05 }}
-              className={`text-2xl md:text-3xl font-bold tracking-tight ${scrolled ? 'text-[#008751]' : 'text-white'}`}
+              className={`text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold tracking-tight ${scrolled ? 'text-[#008751]' : 'text-white'}`}
             >
               Tcode Farms
             </motion.span>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-2">
+          <div className="hidden md:flex items-center space-x-1 lg:space-x-2">
             {navItems.map((item, idx) => (
               <motion.div
                 key={item.href}
@@ -97,7 +97,7 @@ export function Navigation() {
               >
                 <Link
                   href={item.href}
-                  className={`relative px-4 py-2 transition-all duration-300 font-medium text-sm uppercase tracking-widest group ${
+                  className={`relative px-2 lg:px-4 py-2 transition-all duration-300 font-medium text-xs lg:text-sm uppercase tracking-wider lg:tracking-widest group ${
                     pathname === item.href
                       ? "text-[#008751]"
                       : scrolled ? "text-gray-700 hover:text-[#008751]" : "text-white/90 hover:text-white"
@@ -119,11 +119,11 @@ export function Navigation() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               href="tel:+2349158445714"
-              className="ml-6 px-6 py-2.5 bg-gradient-to-r from-[#008751] to-[#00b366] hover:from-[#00b366] hover:to-[#008751] text-white rounded-full text-sm font-bold shadow-lg shadow-[#008751]/30 hover:shadow-[#008751]/50 transition-all duration-300 flex items-center gap-2"
+              className="ml-2 lg:ml-6 px-4 lg:px-6 py-2 lg:py-2.5 bg-gradient-to-r from-[#008751] to-[#00b366] hover:from-[#00b366] hover:to-[#008751] text-white rounded-full text-xs lg:text-sm font-bold shadow-lg shadow-[#008751]/30 hover:shadow-[#008751]/50 transition-all duration-300 flex items-center gap-1 lg:gap-2"
             >
-              <Phone className="h-4 w-4" />
-              <span className="hidden lg:inline">Call Now</span>
-              <span className="lg:hidden">Call</span>
+              <Phone className="h-3 w-3 lg:h-4 lg:w-4" />
+              <span className="hidden xl:inline">Call Now</span>
+              <span className="xl:hidden">Call</span>
             </motion.a>
           </div>
 
@@ -153,7 +153,7 @@ export function Navigation() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.3 }}
-              className="md:hidden py-8 border-t border-[#008751]/20 bg-white rounded-b-3xl shadow-2xl relative overflow-hidden"
+              className="md:hidden py-6 border-t border-[#008751]/20 bg-white rounded-b-2xl sm:rounded-b-3xl shadow-2xl relative overflow-hidden"
             >
               <div className="relative z-10">
                 {navItems.map((item, idx) => (
@@ -165,7 +165,7 @@ export function Navigation() {
                   >
                     <Link
                       href={item.href}
-                      className={`block py-4 px-6 transition-all rounded-lg mx-2 uppercase tracking-wider text-sm font-semibold ${
+                      className={`block py-3 sm:py-4 px-4 sm:px-6 transition-all rounded-lg mx-2 uppercase tracking-wider text-xs sm:text-sm font-semibold ${
                         pathname === item.href
                           ? "text-[#008751] bg-[#008751]/10 border-l-4 border-[#008751]"
                           : "text-gray-700 hover:text-[#008751] hover:bg-[#008751]/5"
@@ -176,13 +176,13 @@ export function Navigation() {
                     </Link>
                   </motion.div>
                 ))}
-                <div className="mt-6 pt-6 border-t border-[#008751]/20 px-4">
+                <div className="mt-4 sm:mt-6 pt-4 sm:pt-6 border-t border-[#008751]/20 px-3 sm:px-4">
                   <motion.a
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.3, delay: navItems.length * 0.05 }}
                     href="tel:+2349158445714"
-                    className="block w-full px-6 py-3 bg-gradient-to-r from-[#008751] to-[#00b366] text-white rounded-full text-center font-bold shadow-lg"
+                    className="block w-full px-4 sm:px-6 py-2.5 sm:py-3 bg-gradient-to-r from-[#008751] to-[#00b366] text-white rounded-full text-center text-sm sm:text-base font-bold shadow-lg"
                   >
                     <Phone className="h-4 w-4 inline mr-2" />
                     Call Now

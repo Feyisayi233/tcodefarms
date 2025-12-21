@@ -70,7 +70,7 @@ export default function Home() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="hero-title text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 md:mb-6 text-white px-4"
+            className="hero-title text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-3 sm:mb-4 md:mb-6 text-white px-4"
           >
             Tcode Farms
           </motion.h1>
@@ -78,7 +78,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-semibold mb-8 md:mb-12 text-white/90 gold-accent px-4"
+            className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-semibold mb-6 sm:mb-8 md:mb-12 text-white/90 gold-accent px-4 leading-tight sm:leading-normal"
           >
             From Hatch to Harvest – We Deliver Excellence
           </motion.p>
@@ -88,32 +88,32 @@ export default function Home() {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 mt-12 md:mt-16 px-4"
+            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4 md:gap-6 mt-8 sm:mt-12 md:mt-16 px-4"
           >
             <motion.div
               whileHover={{ scale: 1.05, y: -5 }}
-              className="bg-white/95 backdrop-blur-sm rounded-2xl p-4 md:p-6 hover-lift shadow-lg border border-[#008751]/20"
+              className="bg-white/95 backdrop-blur-sm rounded-xl sm:rounded-2xl p-3 sm:p-4 md:p-6 hover-lift shadow-lg border border-[#008751]/20"
             >
-              <Award className="h-8 w-8 md:h-10 md:w-10 text-[#008751] mx-auto mb-3 md:mb-4 animate-float" />
-              <p className="text-gray-700 font-medium mb-2 text-xs sm:text-sm md:text-base text-center">
+              <Award className="h-7 w-7 sm:h-8 sm:w-8 md:h-10 md:w-10 text-[#008751] mx-auto mb-2 sm:mb-3 md:mb-4 animate-float" />
+              <p className="text-gray-700 font-medium mb-2 text-xs sm:text-sm md:text-base text-center leading-snug">
                 One of the largest layer farms in Lagos State
               </p>
             </motion.div>
             <motion.div
               whileHover={{ scale: 1.05, y: -5 }}
-              className="bg-white/95 backdrop-blur-sm rounded-2xl p-4 md:p-6 hover-lift shadow-lg border border-[#008751]/20"
+              className="bg-white/95 backdrop-blur-sm rounded-xl sm:rounded-2xl p-3 sm:p-4 md:p-6 hover-lift shadow-lg border border-[#008751]/20"
             >
-              <Package className="h-8 w-8 md:h-10 md:w-10 text-[#008751] mx-auto mb-3 md:mb-4 animate-float" />
-              <p className="text-gray-700 font-medium mb-2 text-xs sm:text-sm md:text-base text-center">
+              <Package className="h-7 w-7 sm:h-8 sm:w-8 md:h-10 md:w-10 text-[#008751] mx-auto mb-2 sm:mb-3 md:mb-4 animate-float" />
+              <p className="text-gray-700 font-medium mb-2 text-xs sm:text-sm md:text-base text-center leading-snug">
                 Supplies <AnimatedCounter value={200} suffix=" crates" className="text-[#008751] font-bold" /> daily to Lagos
               </p>
             </motion.div>
             <motion.div
               whileHover={{ scale: 1.05, y: -5 }}
-              className="bg-white/95 backdrop-blur-sm rounded-2xl p-4 md:p-6 hover-lift shadow-lg border border-[#008751]/20 sm:col-span-2 md:col-span-1"
+              className="bg-white/95 backdrop-blur-sm rounded-xl sm:rounded-2xl p-3 sm:p-4 md:p-6 hover-lift shadow-lg border border-[#008751]/20 sm:col-span-2 md:col-span-1"
             >
-              <Users className="h-8 w-8 md:h-10 md:w-10 text-[#008751] mx-auto mb-3 md:mb-4 animate-float" />
-              <p className="text-gray-700 font-medium mb-2 text-xs sm:text-sm md:text-base text-center">
+              <Users className="h-7 w-7 sm:h-8 sm:w-8 md:h-10 md:w-10 text-[#008751] mx-auto mb-2 sm:mb-3 md:mb-4 animate-float" />
+              <p className="text-gray-700 font-medium mb-2 text-xs sm:text-sm md:text-base text-center leading-snug">
                 <AnimatedCounter value={15} suffix=" years" className="text-[#008751] font-bold" /> in business
               </p>
             </motion.div>
@@ -123,12 +123,12 @@ export default function Home() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.8 }}
-            className="mt-12"
+            className="mt-8 sm:mt-12 px-4"
           >
             <Link href="/products">
               <Button
                 size="lg"
-                className="text-lg px-10 py-6 bg-white text-[#008751] hover:bg-[#008751] hover:text-white border-2 border-white hover:border-[#008751] shadow-lg transition-all font-bold"
+                className="text-base sm:text-lg px-6 sm:px-8 md:px-10 py-4 sm:py-5 md:py-6 bg-white text-[#008751] hover:bg-[#008751] hover:text-white border-2 border-white hover:border-[#008751] shadow-lg transition-all font-bold w-full sm:w-auto"
               >
                 View Our Products
               </Button>
@@ -153,26 +153,26 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section className="py-24 bg-gray-50 grain relative">
+      <section className="py-12 sm:py-16 md:py-24 bg-gray-50 grain relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="text-center mb-16"
+            className="text-center mb-8 sm:mb-12 md:mb-16"
           >
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6">
               <span className="gradient-text">About Tcode Farms</span>
             </h2>
-            <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed px-2">
               Located in Oriokuta, Imota, Lagos State, Tcode Farms is a leading
-              poultry farm with <span className="text-[#008751] font-semibold"><AnimatedCounter value={7000} suffix=" layers" className="text-[#008751]" /></span>, dedicated to delivering excellence
+              poultry farm with <AnimatedCounter value={7000} suffix=" layers" className="text-[#008751] font-semibold" />, dedicated to delivering excellence
               in every aspect of our operations.
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10 md:gap-12 items-center">
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -196,19 +196,19 @@ export default function Home() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="space-y-6"
+              className="space-y-4 sm:space-y-6"
             >
-              <h3 className="text-3xl md:text-4xl font-bold gradient-text">Our Farm</h3>
-              <ul className="space-y-4">
+              <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold gradient-text">Our Farm</h3>
+              <ul className="space-y-3 sm:space-y-4">
                 <motion.li
                   initial={{ opacity: 0, x: 20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: 0.1 }}
-                  className="flex items-start gap-4 bg-white rounded-xl p-4 hover-lift shadow-md border border-[#008751]/10"
+                  className="flex items-start gap-3 sm:gap-4 bg-white rounded-lg sm:rounded-xl p-3 sm:p-4 hover-lift shadow-md border border-[#008751]/10"
                 >
-                  <CheckCircle2 className="h-6 w-6 text-[#008751] flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">
+                  <CheckCircle2 className="h-5 w-5 sm:h-6 sm:w-6 text-[#008751] flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700 text-sm sm:text-base">
                     <strong className="text-[#008751]"><AnimatedCounter value={7000} suffix=" layers" className="text-[#008751]" /></strong> in production
                   </span>
                 </motion.li>
@@ -217,10 +217,10 @@ export default function Home() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: 0.2 }}
-                  className="flex items-start gap-4 bg-white rounded-xl p-4 hover-lift shadow-md border border-[#008751]/10"
+                  className="flex items-start gap-3 sm:gap-4 bg-white rounded-lg sm:rounded-xl p-3 sm:p-4 hover-lift shadow-md border border-[#008751]/10"
                 >
-                  <CheckCircle2 className="h-6 w-6 text-[#008751] flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">
+                  <CheckCircle2 className="h-5 w-5 sm:h-6 sm:w-6 text-[#008751] flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700 text-sm sm:text-base">
                     <strong className="text-[#008751]"><AnimatedCounter value={200} suffix=" crates" className="text-[#008751]" /></strong> of fresh eggs supplied daily
                   </span>
                 </motion.li>
@@ -229,10 +229,10 @@ export default function Home() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: 0.3 }}
-                  className="flex items-start gap-4 bg-white rounded-xl p-4 hover-lift shadow-md border border-[#008751]/10"
+                  className="flex items-start gap-3 sm:gap-4 bg-white rounded-lg sm:rounded-xl p-3 sm:p-4 hover-lift shadow-md border border-[#008751]/10"
                 >
-                  <CheckCircle2 className="h-6 w-6 text-[#008751] flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">
+                  <CheckCircle2 className="h-5 w-5 sm:h-6 sm:w-6 text-[#008751] flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700 text-sm sm:text-base">
                     <strong className="text-[#008751]"><AnimatedCounter value={15} suffix=" years" className="text-[#008751]" /></strong> of experience in the industry
                   </span>
                 </motion.li>
@@ -241,10 +241,10 @@ export default function Home() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: 0.4 }}
-                  className="flex items-start gap-4 bg-white rounded-xl p-4 hover-lift shadow-md border border-[#008751]/10"
+                  className="flex items-start gap-3 sm:gap-4 bg-white rounded-lg sm:rounded-xl p-3 sm:p-4 hover-lift shadow-md border border-[#008751]/10"
                 >
-                  <CheckCircle2 className="h-6 w-6 text-[#008751] flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">
+                  <CheckCircle2 className="h-5 w-5 sm:h-6 sm:w-6 text-[#008751] flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700 text-sm sm:text-base">
                     Located in <strong className="text-[#008751]">Oriokuta, Imota, Lagos State</strong>
                   </span>
                 </motion.li>
@@ -280,26 +280,31 @@ export default function Home() {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.1 }}
               whileHover={{ scale: 1.05, y: -10 }}
-              className="bg-white rounded-2xl p-6 hover-lift shadow-lg border border-[#008751]/10 group relative overflow-hidden"
+              className="bg-white rounded-xl sm:rounded-2xl p-4 sm:p-6 hover-lift shadow-lg border border-[#008751]/10 group relative overflow-hidden"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-[#008751]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-              <Egg className="h-12 w-12 text-[#008751] mb-4 relative z-10" />
-              <h3 className="text-xl font-bold text-gray-900 mb-2 relative z-10">
+              <Egg className="h-10 w-10 sm:h-12 sm:w-12 text-[#008751] mb-3 sm:mb-4 relative z-10" />
+              <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 relative z-10">
                 Table Eggs
               </h3>
-              <p className="text-gray-600 mb-4 text-sm relative z-10">
+              <p className="text-gray-600 mb-3 sm:mb-4 text-xs sm:text-sm relative z-10">
                 Fresh eggs, crate of 30 pieces
               </p>
-              <p className="text-3xl font-bold text-[#008751] mb-6 relative z-10">
-                ₦4,900
-              </p>
+              <div className="mb-4 sm:mb-6 relative z-10">
+                <p className="text-2xl sm:text-3xl font-bold text-[#008751]">
+                  ₦4,900
+                </p>
+                <p className="text-xl sm:text-2xl font-bold text-[#008751]/80">
+                  ₦4,500
+                </p>
+              </div>
               <Link href="/products">
                 <Button
                   variant="outline"
@@ -322,14 +327,14 @@ export default function Home() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.2 + idx * 0.1 }}
                 whileHover={{ scale: 1.05, y: -10 }}
-                className="bg-white rounded-2xl p-6 hover-lift shadow-lg border border-[#008751]/10 group relative overflow-hidden"
+                className="bg-white rounded-xl sm:rounded-2xl p-4 sm:p-6 hover-lift shadow-lg border border-[#008751]/10 group relative overflow-hidden"
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-[#008751]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                <Package className="h-12 w-12 text-[#008751] mb-4 relative z-10" />
-                <h3 className="text-xl font-bold text-gray-900 mb-2 relative z-10">
+                <Package className="h-10 w-10 sm:h-12 sm:w-12 text-[#008751] mb-3 sm:mb-4 relative z-10" />
+                <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 relative z-10">
                   {product.title}
                 </h3>
-                <p className="text-gray-600 mb-6 text-sm relative z-10">
+                <p className="text-gray-600 mb-4 sm:mb-6 text-xs sm:text-sm relative z-10">
                   {product.desc}
                 </p>
                 <Link href="/products">
@@ -349,12 +354,12 @@ export default function Home() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.5 }}
-            className="text-center mt-12"
+            className="text-center mt-8 sm:mt-12"
           >
             <Link href="/products">
               <Button
                 size="lg"
-                className="text-lg px-10 py-6 bg-gradient-to-r from-[#008751] to-[#00b366] hover:from-[#00b366] hover:to-[#008751] text-white border-0 shadow-lg shadow-[#008751]/30"
+                className="text-base sm:text-lg px-6 sm:px-8 md:px-10 py-4 sm:py-5 md:py-6 bg-gradient-to-r from-[#008751] to-[#00b366] hover:from-[#00b366] hover:to-[#008751] text-white border-0 shadow-lg shadow-[#008751]/30 w-full sm:w-auto"
               >
                 View All Products & Services
               </Button>

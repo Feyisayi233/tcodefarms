@@ -21,14 +21,14 @@ export default function ReportsPage() {
   return (
     <div className="bg-white min-h-screen">
       {/* Hero Section */}
-      <section className="relative py-24 pt-32 bg-gradient-to-b from-[#008751] to-[#006B3F] grain overflow-hidden">
+      <section className="relative py-12 sm:py-16 md:py-24 pt-24 sm:pt-28 md:pt-32 bg-gradient-to-b from-[#008751] to-[#006B3F] grain overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.1),transparent_50%)]" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="hero-title text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-white"
+            className="hero-title text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-6 text-white"
           >
             Daily Farm Reports
           </motion.h1>
@@ -36,7 +36,7 @@ export default function ReportsPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-xl md:text-2xl text-white/90 font-semibold gold-accent"
+            className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/90 font-semibold gold-accent px-2"
           >
             Stay updated with our daily production and farm activities
           </motion.p>
@@ -44,7 +44,7 @@ export default function ReportsPage() {
       </section>
 
       {/* Reports Grid */}
-      <section className="py-24 grain relative bg-gray-50">
+      <section className="py-12 sm:py-16 md:py-24 grain relative bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {reports.length === 0 ? (
             <motion.div
@@ -52,18 +52,18 @@ export default function ReportsPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="text-center py-16"
+              className="text-center py-12 sm:py-16"
             >
-              <FileText className="h-16 w-16 text-gray-400 mx-auto mb-4" />
-              <h2 className="text-2xl font-bold text-gray-900 mb-2">
+              <FileText className="h-12 w-12 sm:h-16 sm:w-16 text-gray-400 mx-auto mb-3 sm:mb-4" />
+              <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">
                 No Reports Yet
               </h2>
-              <p className="text-gray-600">
+              <p className="text-sm sm:text-base text-gray-600 px-4">
                 Check back soon for daily farm reports and updates.
               </p>
             </motion.div>
           ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
               {reports.map((report, idx) => (
                 <motion.div
                   key={report.id}
@@ -72,10 +72,10 @@ export default function ReportsPage() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: idx * 0.1 }}
                   whileHover={{ scale: 1.05, y: -10 }}
-                  className="bg-white rounded-2xl p-6 hover-lift shadow-md border border-[#008751]/10"
+                  className="bg-white rounded-xl sm:rounded-2xl p-4 sm:p-6 hover-lift shadow-md border border-[#008751]/10"
                 >
-                  <div className="flex items-center gap-2 text-sm text-gray-500 mb-4">
-                    <Calendar className="h-4 w-4 text-[#008751]" />
+                  <div className="flex items-center gap-2 text-xs sm:text-sm text-gray-500 mb-3 sm:mb-4">
+                    <Calendar className="h-3 w-3 sm:h-4 sm:w-4 text-[#008751]" />
                     <span>{report.date}</span>
                   </div>
                   <h3 className="text-xl font-bold text-gray-900 mb-3 gradient-text">

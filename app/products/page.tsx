@@ -8,8 +8,9 @@ import { EmailSubscriptionForm } from "@/components/email-subscription-form";
 import { ConsultationForm } from "@/components/consultation-form";
 import { Phone, Package, CheckCircle2, Sparkles } from "lucide-react";
 
-// Easy-to-edit price constant
-const EGG_CRATE_PRICE = 4900;
+// Easy-to-edit price constants
+const EGG_CRATE_PRICE_HIGH = 4900;
+const EGG_CRATE_PRICE_LOW = 4500;
 
 export default function ProductsPage() {
   const prefersReducedMotion = useReducedMotion();
@@ -18,14 +19,14 @@ export default function ProductsPage() {
   return (
     <div className="bg-white min-h-screen">
       {/* Hero Section */}
-      <section className="relative py-24 pt-32 bg-gradient-to-b from-[#008751] to-[#006B3F] grain overflow-hidden">
+      <section className="relative py-12 sm:py-16 md:py-24 pt-24 sm:pt-28 md:pt-32 bg-gradient-to-b from-[#008751] to-[#006B3F] grain overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.1),transparent_50%)]" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="hero-title text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-white"
+            className="hero-title text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-6 text-white"
           >
             Products & Services
           </motion.h1>
@@ -33,7 +34,7 @@ export default function ProductsPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-xl md:text-2xl text-white/90 font-semibold gold-accent"
+            className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/90 font-semibold gold-accent px-2"
           >
             Quality poultry products and expert consulting services
           </motion.p>
@@ -41,9 +42,9 @@ export default function ProductsPage() {
       </section>
 
       {/* Products Section */}
-      <section className="py-24 grain relative bg-gray-50">
+      <section className="py-12 sm:py-16 md:py-24 grain relative bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="space-y-20">
+          <div className="space-y-12 sm:space-y-16 md:space-y-20">
             {/* Table Eggs - Pulsing Green Border */}
             <motion.div
               initial={{ opacity: 0, y: 50 }}
@@ -84,24 +85,29 @@ export default function ProductsPage() {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#008751]/50 to-transparent" />
                   </motion.div>
-                  <div className="p-8 md:p-12 flex flex-col justify-center bg-[#008751]">
-                    <div className="flex items-center gap-3 mb-6">
-                      <Sparkles className="h-8 w-8 text-white" />
-                      <h2 className="text-4xl md:text-5xl font-bold text-white">
+                  <div className="p-6 sm:p-8 md:p-12 flex flex-col justify-center bg-[#008751]">
+                    <div className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
+                      <Sparkles className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8 text-white" />
+                      <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white">
                         Table Eggs
                       </h2>
                     </div>
-                    <p className="text-white/90 mb-8 text-lg leading-relaxed">
+                    <p className="text-white/90 mb-6 sm:mb-8 text-base sm:text-lg leading-relaxed">
                       Fresh, high-quality table eggs. Each crate contains 30 pieces of
                       premium eggs from our healthy layers.
                     </p>
-                    <div className="mb-8 p-6 bg-white/10 rounded-2xl">
-                      <p className="text-sm text-white/70 mb-3">Price per crate (30 pieces):</p>
-                      <p className="text-5xl md:text-6xl font-bold text-white">
-                        ₦{EGG_CRATE_PRICE.toLocaleString()}
-                      </p>
+                    <div className="mb-6 sm:mb-8 p-4 sm:p-6 bg-white/10 rounded-xl sm:rounded-2xl">
+                      <p className="text-xs sm:text-sm text-white/70 mb-2 sm:mb-3">Price per crate (30 pieces):</p>
+                      <div className="space-y-1 sm:space-y-2">
+                        <p className="text-3xl sm:text-4xl md:text-5xl font-bold text-white">
+                          ₦{EGG_CRATE_PRICE_HIGH.toLocaleString()}
+                        </p>
+                        <p className="text-2xl sm:text-3xl md:text-4xl font-bold text-white/80">
+                          ₦{EGG_CRATE_PRICE_LOW.toLocaleString()}
+                        </p>
+                      </div>
                     </div>
-                    <div className="flex flex-col sm:flex-row gap-4">
+                    <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                       <motion.a
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
@@ -155,20 +161,20 @@ export default function ProductsPage() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#008751]/50 to-transparent" />
                 </motion.div>
-                <div className="p-8 md:p-12 flex flex-col justify-center bg-gray-50 order-1 md:order-2">
-                  <div className="flex items-center gap-3 mb-6">
-                    <Package className="h-8 w-8 text-[#008751]" />
-                    <h2 className="text-4xl md:text-5xl font-bold gradient-text">
+                <div className="p-6 sm:p-8 md:p-12 flex flex-col justify-center bg-gray-50 order-1 md:order-2">
+                  <div className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
+                    <Package className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8 text-[#008751]" />
+                    <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold gradient-text">
                       Point-of-Lay Birds
                     </h2>
                   </div>
-                  <p className="text-gray-600 mb-6 text-lg leading-relaxed">
+                  <p className="text-gray-600 mb-4 sm:mb-6 text-base sm:text-lg leading-relaxed">
                     Healthy, well-cared-for birds aged 14–18 weeks, ready to start
                     laying. Perfect for starting or expanding your layer operation.
                   </p>
-                  <div className="mb-6 p-4 bg-white rounded-xl border border-[#008751]/20">
-                    <p className="text-sm text-gray-500 mb-2">Availability:</p>
-                    <p className="text-lg font-semibold text-[#008751]">
+                  <div className="mb-4 sm:mb-6 p-3 sm:p-4 bg-white rounded-lg sm:rounded-xl border border-[#008751]/20">
+                    <p className="text-xs sm:text-sm text-gray-500 mb-1 sm:mb-2">Availability:</p>
+                    <p className="text-base sm:text-lg font-semibold text-[#008751]">
                       Subscribe to be notified when available
                     </p>
                   </div>
@@ -203,21 +209,21 @@ export default function ProductsPage() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#008751]/50 to-transparent" />
                 </motion.div>
-                <div className="p-8 md:p-12 flex flex-col justify-center bg-gray-50">
-                  <div className="flex items-center gap-3 mb-6">
-                    <Package className="h-8 w-8 text-[#008751]" />
-                    <h2 className="text-4xl md:text-5xl font-bold gradient-text">
+                <div className="p-6 sm:p-8 md:p-12 flex flex-col justify-center bg-gray-50">
+                  <div className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
+                    <Package className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8 text-[#008751]" />
+                    <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold gradient-text">
                       Spent/Old Layers
                     </h2>
                   </div>
-                  <p className="text-gray-600 mb-6 text-lg leading-relaxed">
+                  <p className="text-gray-600 mb-4 sm:mb-6 text-base sm:text-lg leading-relaxed">
                     Quality spent layers available for purchase. These birds have
                     completed their productive laying cycle and are suitable for
                     various purposes.
                   </p>
-                  <div className="mb-6 p-4 bg-white rounded-xl border border-[#008751]/20">
-                    <p className="text-sm text-gray-500 mb-2">Availability:</p>
-                    <p className="text-lg font-semibold text-[#008751]">
+                  <div className="mb-4 sm:mb-6 p-3 sm:p-4 bg-white rounded-lg sm:rounded-xl border border-[#008751]/20">
+                    <p className="text-xs sm:text-sm text-gray-500 mb-1 sm:mb-2">Availability:</p>
+                    <p className="text-base sm:text-lg font-semibold text-[#008751]">
                       Subscribe to be notified when available
                     </p>
                   </div>
@@ -252,18 +258,18 @@ export default function ProductsPage() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#008751]/50 to-transparent" />
                 </motion.div>
-                <div className="p-8 md:p-12 flex flex-col justify-center bg-gray-50 order-1 md:order-2">
-                  <div className="flex items-center gap-3 mb-6">
-                    <CheckCircle2 className="h-8 w-8 text-[#008751]" />
-                    <h2 className="text-4xl md:text-5xl font-bold gradient-text">
+                <div className="p-6 sm:p-8 md:p-12 flex flex-col justify-center bg-gray-50 order-1 md:order-2">
+                  <div className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
+                    <CheckCircle2 className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8 text-[#008751]" />
+                    <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold gradient-text">
                       Farm Setup & Consulting Services
                     </h2>
                   </div>
-                  <p className="text-gray-600 mb-6 text-lg leading-relaxed">
+                  <p className="text-gray-600 mb-4 sm:mb-6 text-base sm:text-lg leading-relaxed">
                     Leverage our 15 years of experience to set up your own poultry
                     farm. We offer comprehensive consulting services covering:
                   </p>
-                  <ul className="list-none space-y-3 mb-8">
+                  <ul className="list-none space-y-2 sm:space-y-3 mb-6 sm:mb-8">
                     {[
                       "Farm design and layout planning",
                       "Equipment selection and sourcing",
@@ -278,10 +284,10 @@ export default function ProductsPage() {
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.5, delay: idx * 0.1 }}
-                        className="flex items-start gap-3 bg-white rounded-lg p-3 border border-[#008751]/10"
+                        className="flex items-start gap-2 sm:gap-3 bg-white rounded-lg p-2.5 sm:p-3 border border-[#008751]/10"
                       >
-                        <CheckCircle2 className="h-5 w-5 text-[#008751] flex-shrink-0 mt-0.5" />
-                        <span className="text-gray-700">{item}</span>
+                        <CheckCircle2 className="h-4 w-4 sm:h-5 sm:w-5 text-[#008751] flex-shrink-0 mt-0.5" />
+                        <span className="text-gray-700 text-sm sm:text-base">{item}</span>
                       </motion.li>
                     ))}
                   </ul>
@@ -292,7 +298,7 @@ export default function ProductsPage() {
                     <Button
                       onClick={() => setConsultationOpen(true)}
                       size="lg"
-                      className="w-full sm:w-auto bg-gradient-to-r from-[#008751] to-[#00b366] hover:from-[#00b366] hover:to-[#008751] text-white border-0 shadow-lg"
+                      className="w-full sm:w-auto text-sm sm:text-base px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-[#008751] to-[#00b366] hover:from-[#00b366] hover:to-[#008751] text-white border-0 shadow-lg"
                     >
                       Book Consultation
                     </Button>

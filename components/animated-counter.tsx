@@ -22,7 +22,7 @@ export function AnimatedCounter({
     damping: 60,
     stiffness: 100,
   });
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const isInView = useInView(ref, { once: true, margin: "-50px" });
 
   useEffect(() => {
     if (isInView) {
@@ -41,5 +41,5 @@ export function AnimatedCounter({
     return () => unsubscribe();
   }, [springValue, suffix]);
 
-  return <span ref={ref} className={className}>0{suffix}</span>;
+  return <span ref={ref} className={className} style={{ display: 'inline-block', minWidth: '1ch' }}>0{suffix}</span>;
 }

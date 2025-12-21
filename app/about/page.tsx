@@ -9,14 +9,14 @@ export default function AboutPage() {
   return (
     <div className="bg-white min-h-screen">
       {/* Hero Section */}
-      <section className="relative py-24 pt-32 bg-gradient-to-b from-[#008751] to-[#006B3F] grain overflow-hidden">
+      <section className="relative py-12 sm:py-16 md:py-24 pt-24 sm:pt-28 md:pt-32 bg-gradient-to-b from-[#008751] to-[#006B3F] grain overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.1),transparent_50%)]" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="hero-title text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-white"
+            className="hero-title text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-6 text-white"
           >
             About Tcode Farms
           </motion.h1>
@@ -24,7 +24,7 @@ export default function AboutPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-xl md:text-2xl text-white/90 font-semibold gold-accent"
+            className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/90 font-semibold gold-accent px-2"
           >
             From Hatch to Harvest – We Deliver Excellence
           </motion.p>
@@ -32,29 +32,29 @@ export default function AboutPage() {
       </section>
 
       {/* Main Content */}
-      <section className="py-24 grain relative bg-gray-50">
+      <section className="py-12 sm:py-16 md:py-24 grain relative bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 md:gap-12 items-center mb-12 sm:mb-16 md:mb-20">
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <h2 className="text-4xl md:text-5xl font-bold mb-6 gradient-text">Our Story</h2>
-              <p className="text-gray-600 text-lg mb-4 leading-relaxed">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 gradient-text">Our Story</h2>
+              <p className="text-gray-600 text-base sm:text-lg mb-3 sm:mb-4 leading-relaxed">
                 Tcode Farms has been a cornerstone of the poultry industry in Lagos
                 State for over <span className="text-[#008751] font-semibold"><AnimatedCounter value={15} suffix=" years" className="text-[#008751]" /></span>. What started as a small operation has grown
                 into one of the largest layer farms in the state, with <span className="text-[#008751] font-semibold"><AnimatedCounter value={7000} suffix=" layers" className="text-[#008751]" /></span>
                 producing high-quality eggs for the Lagos market.
               </p>
-              <p className="text-gray-600 text-lg mb-4 leading-relaxed">
+              <p className="text-gray-600 text-base sm:text-lg mb-3 sm:mb-4 leading-relaxed">
                 Our commitment to excellence, quality, and sustainable farming
                 practices has made us a trusted name in the poultry industry. We
                 take pride in every aspect of our operation, from the care of our
                 birds to the delivery of fresh eggs to our customers.
               </p>
-              <p className="text-gray-600 text-lg leading-relaxed">
+              <p className="text-gray-600 text-base sm:text-lg leading-relaxed">
                 Located in Oriokuta, Imota, Lagos State, we are strategically
                 positioned to serve the Lagos market efficiently, ensuring that our
                 products reach customers fresh and in perfect condition.
@@ -86,12 +86,12 @@ export default function AboutPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="bg-white rounded-3xl p-8 md:p-12 mb-20 shadow-lg border border-[#008751]/10"
+            className="bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-12 mb-12 sm:mb-16 md:mb-20 shadow-lg border border-[#008751]/10"
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center gradient-text">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-8 sm:mb-10 md:mb-12 text-center gradient-text">
               Our Achievements
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
               {[
                 { icon: Award, title: "Largest in Lagos", desc: "One of the largest layer farms in Lagos State" },
                 { icon: Package, title: "200 Crates Daily", desc: "Supplies 200 crates daily to Lagos market" },
