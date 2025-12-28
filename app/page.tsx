@@ -40,23 +40,35 @@ export default function Home() {
             unoptimized
             sizes="100vw"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#008751]/90 via-[#008751]/80 to-white" />
+          {/* Enhanced gradient overlay with multiple layers for depth */}
+          <div className="absolute inset-0 bg-gradient-to-b from-[#008751]/95 via-[#008751]/85 to-[#008751]/60" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
+          {/* Subtle pattern overlay */}
+          <div className="absolute inset-0 opacity-10" style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+          }} />
         </motion.div>
 
-        {/* Floating Animated Icons */}
+        {/* Floating Animated Icons - More subtle and professional */}
         <motion.div
-          animate={prefersReducedMotion ? {} : { y: [0, -20, 0], rotate: [0, 5, 0] }}
-          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-20 left-4 md:left-10 z-10 hidden md:block"
+          animate={prefersReducedMotion ? {} : { y: [0, -15, 0], rotate: [0, 3, 0] }}
+          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute top-24 left-6 md:left-12 z-10 hidden lg:block"
         >
-          <Egg className="h-8 w-8 md:h-12 md:w-12 text-white/30" />
+          <div className="relative">
+            <div className="absolute inset-0 bg-white/10 blur-xl rounded-full" />
+            <Egg className="h-10 w-10 md:h-14 md:w-14 text-white/40 relative z-10" />
+          </div>
         </motion.div>
         <motion.div
-          animate={prefersReducedMotion ? {} : { y: [0, 20, 0], rotate: [0, -5, 0] }}
-          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-          className="absolute bottom-20 right-4 md:right-10 z-10 hidden md:block"
+          animate={prefersReducedMotion ? {} : { y: [0, 15, 0], rotate: [0, -3, 0] }}
+          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
+          className="absolute bottom-24 right-6 md:right-12 z-10 hidden lg:block"
         >
-          <TrendingUp className="h-8 w-8 md:h-10 md:w-10 text-white/30" />
+          <div className="relative">
+            <div className="absolute inset-0 bg-white/10 blur-xl rounded-full" />
+            <TrendingUp className="h-10 w-10 md:h-12 md:w-12 text-white/40 relative z-10" />
+          </div>
         </motion.div>
 
         {/* Hero Content */}
@@ -64,90 +76,150 @@ export default function Home() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="relative z-10 text-center px-4 max-w-5xl mx-auto"
+          className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto"
         >
+          {/* Badge/Tag */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="inline-flex items-center gap-2 px-4 py-2 mb-6 sm:mb-8 bg-white/10 backdrop-blur-md rounded-full border border-white/20 shadow-lg"
+          >
+            <Award className="h-4 w-4 text-white/90" />
+            <span className="text-xs sm:text-sm font-semibold text-white/90 tracking-wide uppercase">
+              Leading Layer Farm in Lagos State
+            </span>
+          </motion.div>
+
+          {/* Main Title */}
           <motion.h1
-            initial={{ opacity: 0, scale: 0.9 }}
+            initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="hero-title text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-3 sm:mb-4 md:mb-6 text-white px-4"
+            className="hero-title text-4xl xs:text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-4 sm:mb-6 text-white leading-[1.1] tracking-tight"
           >
             Tcode Farms
           </motion.h1>
+
+          {/* Subtitle */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-semibold mb-6 sm:mb-8 md:mb-12 text-white/90 gold-accent px-4 leading-tight sm:leading-normal"
+            className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-medium mb-8 sm:mb-10 md:mb-12 text-white/95 leading-relaxed max-w-3xl mx-auto"
           >
             From Hatch to Harvest – We Deliver Excellence
           </motion.p>
 
-          {/* Animated Achievement Cards */}
+          {/* Enhanced Achievement Cards */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4 md:gap-6 mt-8 sm:mt-12 md:mt-16 px-4"
+            className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5 md:gap-6 mb-8 sm:mb-10 md:mb-12"
           >
             <motion.div
-              whileHover={{ scale: 1.05, y: -5 }}
-              className="bg-white/95 backdrop-blur-sm rounded-xl sm:rounded-2xl p-3 sm:p-4 md:p-6 hover-lift shadow-lg border border-[#008751]/20"
+              whileHover={{ scale: 1.03, y: -8 }}
+              transition={{ duration: 0.3 }}
+              className="bg-white/98 backdrop-blur-md rounded-2xl p-5 sm:p-6 md:p-8 hover-lift shadow-2xl border border-white/30 group relative overflow-hidden"
             >
-              <Award className="h-7 w-7 sm:h-8 sm:w-8 md:h-10 md:w-10 text-[#008751] mx-auto mb-2 sm:mb-3 md:mb-4 animate-float" />
-              <p className="text-gray-700 font-medium mb-2 text-xs sm:text-sm md:text-base text-center leading-snug">
-                One of the largest layer farms in Lagos State
-              </p>
+              {/* Subtle gradient on hover */}
+              <div className="absolute inset-0 bg-gradient-to-br from-[#008751]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="relative z-10">
+                <div className="inline-flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 mb-4 rounded-2xl bg-gradient-to-br from-[#008751] to-[#00b366] shadow-lg">
+                  <Award className="h-7 w-7 sm:h-8 sm:w-8 md:h-10 md:w-10 text-white" />
+                </div>
+                <p className="text-gray-800 font-semibold text-sm sm:text-base md:text-lg text-center leading-snug">
+                  One of the largest layer farms in Lagos State
+                </p>
+              </div>
             </motion.div>
             <motion.div
-              whileHover={{ scale: 1.05, y: -5 }}
-              className="bg-white/95 backdrop-blur-sm rounded-xl sm:rounded-2xl p-3 sm:p-4 md:p-6 hover-lift shadow-lg border border-[#008751]/20"
+              whileHover={{ scale: 1.03, y: -8 }}
+              transition={{ duration: 0.3 }}
+              className="bg-white/98 backdrop-blur-md rounded-2xl p-5 sm:p-6 md:p-8 hover-lift shadow-2xl border border-white/30 group relative overflow-hidden"
             >
-              <Package className="h-7 w-7 sm:h-8 sm:w-8 md:h-10 md:w-10 text-[#008751] mx-auto mb-2 sm:mb-3 md:mb-4 animate-float" />
-              <p className="text-gray-700 font-medium mb-2 text-xs sm:text-sm md:text-base text-center leading-snug">
-                Supplies <AnimatedCounter value={200} suffix=" crates" className="text-[#008751] font-bold" /> daily to Lagos
-              </p>
+              <div className="absolute inset-0 bg-gradient-to-br from-[#008751]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="relative z-10">
+                <div className="inline-flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 mb-4 rounded-2xl bg-gradient-to-br from-[#008751] to-[#00b366] shadow-lg">
+                  <Package className="h-7 w-7 sm:h-8 sm:w-8 md:h-10 md:w-10 text-white" />
+                </div>
+                <p className="text-gray-800 font-semibold text-sm sm:text-base md:text-lg text-center leading-snug">
+                  Supplies <AnimatedCounter value={200} suffix=" crates" className="text-[#008751] font-bold" /> daily to Lagos
+                </p>
+              </div>
             </motion.div>
             <motion.div
-              whileHover={{ scale: 1.05, y: -5 }}
-              className="bg-white/95 backdrop-blur-sm rounded-xl sm:rounded-2xl p-3 sm:p-4 md:p-6 hover-lift shadow-lg border border-[#008751]/20 sm:col-span-2 md:col-span-1"
+              whileHover={{ scale: 1.03, y: -8 }}
+              transition={{ duration: 0.3 }}
+              className="bg-white/98 backdrop-blur-md rounded-2xl p-5 sm:p-6 md:p-8 hover-lift shadow-2xl border border-white/30 group relative overflow-hidden"
             >
-              <Users className="h-7 w-7 sm:h-8 sm:w-8 md:h-10 md:w-10 text-[#008751] mx-auto mb-2 sm:mb-3 md:mb-4 animate-float" />
-              <p className="text-gray-700 font-medium mb-2 text-xs sm:text-sm md:text-base text-center leading-snug">
-                <AnimatedCounter value={15} suffix=" years" className="text-[#008751] font-bold" /> in business
-              </p>
+              <div className="absolute inset-0 bg-gradient-to-br from-[#008751]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="relative z-10">
+                <div className="inline-flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 mb-4 rounded-2xl bg-gradient-to-br from-[#008751] to-[#00b366] shadow-lg">
+                  <Users className="h-7 w-7 sm:h-8 sm:w-8 md:h-10 md:w-10 text-white" />
+                </div>
+                <p className="text-gray-800 font-semibold text-sm sm:text-base md:text-lg text-center leading-snug">
+                  <AnimatedCounter value={15} suffix=" years" className="text-[#008751] font-bold" /> in business
+                </p>
+              </div>
             </motion.div>
           </motion.div>
 
+          {/* Enhanced CTA Button */}
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.8 }}
-            className="mt-8 sm:mt-12 px-4"
+            className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6"
           >
             <Link href="/products">
               <Button
                 size="lg"
-                className="text-base sm:text-lg px-6 sm:px-8 md:px-10 py-4 sm:py-5 md:py-6 bg-white text-[#008751] hover:bg-[#008751] hover:text-white border-2 border-white hover:border-[#008751] shadow-lg transition-all font-bold w-full sm:w-auto"
+                className="group relative text-base sm:text-lg px-8 sm:px-10 md:px-12 py-5 sm:py-6 md:py-7 bg-white text-[#008751] hover:bg-[#008751] hover:text-white border-2 border-white hover:border-white shadow-2xl hover:shadow-[#008751]/50 transition-all duration-300 font-bold w-full sm:w-auto overflow-hidden"
               >
-                View Our Products
+                <span className="relative z-10 flex items-center gap-2">
+                  View Our Products
+                  <motion.span
+                    animate={prefersReducedMotion ? {} : { x: [0, 4, 0] }}
+                    transition={{ duration: 1.5, repeat: Infinity }}
+                    className="inline-block"
+                  >
+                    →
+                  </motion.span>
+                </span>
+                <div className="absolute inset-0 bg-gradient-to-r from-[#008751] to-[#00b366] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              </Button>
+            </Link>
+            <Link href="/contact">
+              <Button
+                variant="outline"
+                size="lg"
+                className="text-base sm:text-lg px-8 sm:px-10 md:px-12 py-5 sm:py-6 md:py-7 bg-transparent text-white border-2 border-white/80 hover:bg-white/10 hover:border-white backdrop-blur-sm shadow-xl transition-all duration-300 font-semibold w-full sm:w-auto"
+              >
+                Contact Us
               </Button>
             </Link>
           </motion.div>
         </motion.div>
 
-        {/* Scroll Indicator */}
+        {/* Enhanced Scroll Indicator */}
         <motion.div
           animate={prefersReducedMotion ? {} : { y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10"
+          className="absolute bottom-8 sm:bottom-12 left-1/2 transform -translate-x-1/2 z-10"
         >
-          <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center">
-            <motion.div
-              animate={prefersReducedMotion ? {} : { y: [0, 12, 0] }}
-              transition={{ duration: 2, repeat: Infinity }}
-              className="w-1.5 h-1.5 bg-white rounded-full mt-2"
-            />
+          <div className="flex flex-col items-center gap-2">
+            <span className="text-white/60 text-xs font-medium uppercase tracking-wider mb-2">
+              Scroll
+            </span>
+            <div className="w-6 h-10 border-2 border-white/60 rounded-full flex justify-center backdrop-blur-sm bg-white/5">
+              <motion.div
+                animate={prefersReducedMotion ? {} : { y: [0, 14, 0] }}
+                transition={{ duration: 2, repeat: Infinity }}
+                className="w-1.5 h-1.5 bg-white rounded-full mt-2"
+              />
+            </div>
           </div>
         </motion.div>
       </section>
