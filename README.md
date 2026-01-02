@@ -5,11 +5,13 @@ A professional, mobile-first poultry farm website built with Next.js 15, TypeScr
 ## Getting Started
 
 1. Install dependencies:
+
 ```bash
 npm install
 ```
 
 2. Run the development server:
+
 ```bash
 npm run dev
 ```
@@ -47,6 +49,7 @@ const EGG_CRATE_PRICE = 4900; // Update this value
 ### Update Images
 
 Replace placeholder images with your own:
+
 - Hero background: `app/page.tsx`
 - About page images: `app/about/page.tsx`
 - Product images: `app/products/page.tsx`
@@ -67,4 +70,3 @@ This project is ready to deploy to Vercel:
 - shadcn/ui components
 - React Hook Form
 - Zod (form validation)
-

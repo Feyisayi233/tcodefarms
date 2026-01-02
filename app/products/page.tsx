@@ -9,8 +9,8 @@ import { ConsultationForm } from "@/components/consultation-form";
 import { Phone, Package, CheckCircle2, Sparkles } from "lucide-react";
 
 // Easy-to-edit price constants
-const EGG_CRATE_PRICE_HIGH = 4900;
-const EGG_CRATE_PRICE_LOW = 4500;
+const EGG_CRATE_PRICE_HIGH = 4800;
+const EGG_CRATE_PRICE_LOW = 4300;
 
 export default function ProductsPage() {
   const prefersReducedMotion = useReducedMotion();

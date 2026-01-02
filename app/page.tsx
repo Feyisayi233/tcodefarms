@@ -379,10 +379,10 @@ export default function Home() {
               </p>
               <div className="mb-4 sm:mb-6 relative z-10">
                 <p className="text-2xl sm:text-3xl font-bold text-[#008751]">
-                  ₦4,900
+                  ₦4,800
                 </p>
                 <p className="text-xl sm:text-2xl font-bold text-[#008751]/80">
-                  ₦4,500
+                  ₦4,300
                 </p>
               </div>
               <Link href="/products">
