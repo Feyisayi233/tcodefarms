@@ -11,12 +11,26 @@ import { useEffect, useRef, useState } from "react";
 
 export default function Home() {
   const prefersReducedMotion = useReducedMotion();
+  const [isMobile, setIsMobile] = useState(false);
   const heroRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: heroRef,
     offset: ["start start", "end start"],
   });
-  const y = useTransform(scrollYProgress, [0, 1], prefersReducedMotion ? ["0%", "0%"] : ["0%", "50%"]);
+  
+  // Detect mobile device for optimized parallax
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+  
+  // Reduce parallax effect on mobile for better performance
+  const parallaxAmount = prefersReducedMotion || isMobile ? "0%" : "50%";
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", parallaxAmount]);
   const opacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
 
   return (
@@ -199,19 +213,19 @@ export default function Home() {
 
         {/* Enhanced Scroll Indicator */}
         <motion.div
-          animate={prefersReducedMotion ? {} : { y: [0, 10, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
-          className="absolute bottom-8 sm:bottom-12 left-1/2 transform -translate-x-1/2 z-10"
+          animate={prefersReducedMotion ? {} : { y: [0, 8, 0] }}
+          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute bottom-4 xs:bottom-6 sm:bottom-8 md:bottom-12 left-1/2 transform -translate-x-1/2 z-10"
         >
-          <div className="flex flex-col items-center gap-2">
-            <span className="text-white/60 text-xs font-medium uppercase tracking-wider mb-2">
+          <div className="flex flex-col items-center gap-1 sm:gap-2">
+            <span className="text-white/60 text-[10px] xs:text-xs font-medium uppercase tracking-wider mb-1 sm:mb-2">
               Scroll
             </span>
-            <div className="w-6 h-10 border-2 border-white/60 rounded-full flex justify-center backdrop-blur-sm bg-white/5">
+            <div className="w-5 h-8 xs:w-6 xs:h-10 sm:w-6 sm:h-10 border-2 border-white/60 rounded-full flex justify-center backdrop-blur-sm bg-white/5">
               <motion.div
-                animate={prefersReducedMotion ? {} : { y: [0, 14, 0] }}
-                transition={{ duration: 2, repeat: Infinity }}
-                className="w-1.5 h-1.5 bg-white rounded-full mt-2"
+                animate={prefersReducedMotion ? {} : { y: [0, 10, 0] }}
+                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                className="w-1 h-1 xs:w-1.5 xs:h-1.5 bg-white rounded-full mt-1.5 xs:mt-2"
               />
             </div>
           </div>
