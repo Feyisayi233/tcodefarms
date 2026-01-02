@@ -42,7 +42,7 @@ export default function Home() {
           />
           {/* Enhanced gradient overlay with multiple layers for depth */}
           <div className="absolute inset-0 bg-gradient-to-b from-[#008751]/95 via-[#008751]/85 to-[#008751]/60" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-white/10 via-transparent to-transparent" />
           {/* Subtle pattern overlay */}
           <div className="absolute inset-0 opacity-10" style={{
             backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
@@ -121,15 +121,13 @@ export default function Home() {
             <motion.div
               whileHover={{ scale: 1.03, y: -8 }}
               transition={{ duration: 0.3 }}
-              className="bg-white/98 backdrop-blur-md rounded-2xl p-5 sm:p-6 md:p-8 hover-lift shadow-2xl border border-white/30 group relative overflow-hidden"
+              className="bg-white/95 backdrop-blur-sm rounded-xl sm:rounded-2xl p-3 sm:p-4 md:p-6 hover-lift shadow-lg border border-[#008751]/20 group relative overflow-hidden"
             >
               {/* Subtle gradient on hover */}
               <div className="absolute inset-0 bg-gradient-to-br from-[#008751]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               <div className="relative z-10">
-                <div className="inline-flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 mb-4 rounded-2xl bg-gradient-to-br from-[#008751] to-[#00b366] shadow-lg">
-                  <Award className="h-7 w-7 sm:h-8 sm:w-8 md:h-10 md:w-10 text-white" />
-                </div>
-                <p className="text-gray-800 font-semibold text-sm sm:text-base md:text-lg text-center leading-snug">
+                <Award className="h-7 w-7 sm:h-8 sm:w-8 md:h-10 md:w-10 text-[#008751] mx-auto mb-2 sm:mb-3 md:mb-4 animate-float" />
+                <p className="text-gray-700 font-medium mb-2 text-xs sm:text-sm md:text-base text-center leading-snug">
                   One of the largest layer farms in Lagos State
                 </p>
               </div>
@@ -137,14 +135,12 @@ export default function Home() {
             <motion.div
               whileHover={{ scale: 1.03, y: -8 }}
               transition={{ duration: 0.3 }}
-              className="bg-white/98 backdrop-blur-md rounded-2xl p-5 sm:p-6 md:p-8 hover-lift shadow-2xl border border-white/30 group relative overflow-hidden"
+              className="bg-white/95 backdrop-blur-sm rounded-xl sm:rounded-2xl p-3 sm:p-4 md:p-6 hover-lift shadow-lg border border-[#008751]/20 group relative overflow-hidden"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-[#008751]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               <div className="relative z-10">
-                <div className="inline-flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 mb-4 rounded-2xl bg-gradient-to-br from-[#008751] to-[#00b366] shadow-lg">
-                  <Package className="h-7 w-7 sm:h-8 sm:w-8 md:h-10 md:w-10 text-white" />
-                </div>
-                <p className="text-gray-800 font-semibold text-sm sm:text-base md:text-lg text-center leading-snug">
+                <Package className="h-7 w-7 sm:h-8 sm:w-8 md:h-10 md:w-10 text-[#008751] mx-auto mb-2 sm:mb-3 md:mb-4 animate-float" />
+                <p className="text-gray-700 font-medium mb-2 text-xs sm:text-sm md:text-base text-center leading-snug">
                   Supplies <AnimatedCounter value={200} suffix=" crates" className="text-[#008751] font-bold" /> daily to Lagos
                 </p>
               </div>
@@ -152,14 +148,12 @@ export default function Home() {
             <motion.div
               whileHover={{ scale: 1.03, y: -8 }}
               transition={{ duration: 0.3 }}
-              className="bg-white/98 backdrop-blur-md rounded-2xl p-5 sm:p-6 md:p-8 hover-lift shadow-2xl border border-white/30 group relative overflow-hidden"
+              className="bg-white/95 backdrop-blur-sm rounded-xl sm:rounded-2xl p-3 sm:p-4 md:p-6 hover-lift shadow-lg border border-[#008751]/20 group relative overflow-hidden"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-[#008751]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               <div className="relative z-10">
-                <div className="inline-flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 mb-4 rounded-2xl bg-gradient-to-br from-[#008751] to-[#00b366] shadow-lg">
-                  <Users className="h-7 w-7 sm:h-8 sm:w-8 md:h-10 md:w-10 text-white" />
-                </div>
-                <p className="text-gray-800 font-semibold text-sm sm:text-base md:text-lg text-center leading-snug">
+                <Users className="h-7 w-7 sm:h-8 sm:w-8 md:h-10 md:w-10 text-[#008751] mx-auto mb-2 sm:mb-3 md:mb-4 animate-float" />
+                <p className="text-gray-700 font-medium mb-2 text-xs sm:text-sm md:text-base text-center leading-snug">
                   <AnimatedCounter value={15} suffix=" years" className="text-[#008751] font-bold" /> in business
                 </p>
               </div>

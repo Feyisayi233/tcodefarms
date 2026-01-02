@@ -36,7 +36,7 @@ export default function ContactPage() {
       // Send to Formspree
       const formspreeId = process.env.NEXT_PUBLIC_FORMSPREE_CONTACT_FORM_ID;
       if (formspreeId) {
-        await fetch(`https://formspree.io/f/${formspreeId}`, {
+        const response = await fetch(`https://formspree.io/f/${formspreeId}`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -44,22 +44,30 @@ export default function ContactPage() {
           },
           body: JSON.stringify(data),
         });
+        
+        if (!response.ok) {
+          throw new Error(`Form submission failed: ${response.status}`);
+        }
       }
 
       // Backup to localStorage
       if (typeof window !== "undefined") {
-        const contacts = JSON.parse(localStorage.getItem("contacts") || "[]");
-        contacts.push({
-          ...data,
-          date: new Date().toISOString(),
-        });
-        localStorage.setItem("contacts", JSON.stringify(contacts));
+        try {
+          const contacts = JSON.parse(localStorage.getItem("contacts") || "[]");
+          contacts.push({
+            ...data,
+            date: new Date().toISOString(),
+          });
+          localStorage.setItem("contacts", JSON.stringify(contacts));
+        } catch (storageError) {
+          console.error("Failed to save to localStorage:", storageError);
+        }
       }
 
       setShowToast(true);
       reset();
     } catch (error) {
-      console.error("Failed to submit contact form:", error);
+      console.error("Failed to submit contact form:", error instanceof Error ? error.message : String(error));
       // Still show success to user even if Formspree fails
       // (localStorage backup will preserve the data)
       setShowToast(true);

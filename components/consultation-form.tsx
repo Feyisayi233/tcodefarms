@@ -46,7 +46,7 @@ export function ConsultationForm({ open, onOpenChange }: ConsultationFormProps) 
       // Send to Formspree
       const formspreeId = process.env.NEXT_PUBLIC_FORMSPREE_CONSULTATION_FORM_ID;
       if (formspreeId) {
-        await fetch(`https://formspree.io/f/${formspreeId}`, {
+        const response = await fetch(`https://formspree.io/f/${formspreeId}`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -54,18 +54,26 @@ export function ConsultationForm({ open, onOpenChange }: ConsultationFormProps) 
           },
           body: JSON.stringify(data),
         });
+        
+        if (!response.ok) {
+          throw new Error(`Form submission failed: ${response.status}`);
+        }
       }
 
       // Backup to localStorage
       if (typeof window !== "undefined") {
-        const consultations = JSON.parse(
-          localStorage.getItem("consultations") || "[]"
-        );
-        consultations.push({
-          ...data,
-          date: new Date().toISOString(),
-        });
-        localStorage.setItem("consultations", JSON.stringify(consultations));
+        try {
+          const consultations = JSON.parse(
+            localStorage.getItem("consultations") || "[]"
+          );
+          consultations.push({
+            ...data,
+            date: new Date().toISOString(),
+          });
+          localStorage.setItem("consultations", JSON.stringify(consultations));
+        } catch (storageError) {
+          console.error("Failed to save to localStorage:", storageError);
+        }
       }
 
       setShowToast(true);
@@ -75,7 +83,7 @@ export function ConsultationForm({ open, onOpenChange }: ConsultationFormProps) 
         setShowToast(false);
       }, 2000);
     } catch (error) {
-      console.error("Failed to submit consultation form:", error);
+      console.error("Failed to submit consultation form:", error instanceof Error ? error.message : String(error));
       // Still show success to user even if Formspree fails
       // (localStorage backup will preserve the data)
       setShowToast(true);

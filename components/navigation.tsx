@@ -63,15 +63,21 @@ export function Navigation() {
                     priority
                     unoptimized
                     onError={(e) => {
-                      // Try SVG if PNG fails
-                      const img = e.currentTarget as HTMLImageElement;
-                      if (img.src.includes('logo.png')) {
-                        img.src = '/logo.svg';
-                        img.onerror = () => {
+                      try {
+                        // Try SVG if PNG fails
+                        const img = e.currentTarget as HTMLImageElement;
+                        if (img && img.src && img.src.includes('logo.png')) {
+                          img.src = '/logo.svg';
+                          img.onerror = () => {
+                            if (img) {
+                              img.style.display = 'none';
+                            }
+                          };
+                        } else if (img) {
                           img.style.display = 'none';
-                        };
-                      } else {
-                        img.style.display = 'none';
+                        }
+                      } catch (error) {
+                        console.error("Image error handler failed:", error instanceof Error ? error.message : String(error));
                       }
                     }}
                   />

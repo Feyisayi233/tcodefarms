@@ -34,7 +34,7 @@ export function EmailSubscriptionForm({ productName }: EmailSubscriptionFormProp
       // Send to Formspree
       const formspreeId = process.env.NEXT_PUBLIC_FORMSPREE_SUBSCRIPTION_FORM_ID;
       if (formspreeId) {
-        await fetch(`https://formspree.io/f/${formspreeId}`, {
+        const response = await fetch(`https://formspree.io/f/${formspreeId}`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -46,25 +46,33 @@ export function EmailSubscriptionForm({ productName }: EmailSubscriptionFormProp
             _subject: `Email Subscription: ${productName}`,
           }),
         });
+        
+        if (!response.ok) {
+          throw new Error(`Form submission failed: ${response.status}`);
+        }
       }
 
       // Backup to localStorage
       if (typeof window !== "undefined") {
-        const subscriptions = JSON.parse(
-          localStorage.getItem("emailSubscriptions") || "[]"
-        );
-        subscriptions.push({
-          email: data.email,
-          product: productName,
-          date: new Date().toISOString(),
-        });
-        localStorage.setItem("emailSubscriptions", JSON.stringify(subscriptions));
+        try {
+          const subscriptions = JSON.parse(
+            localStorage.getItem("emailSubscriptions") || "[]"
+          );
+          subscriptions.push({
+            email: data.email,
+            product: productName,
+            date: new Date().toISOString(),
+          });
+          localStorage.setItem("emailSubscriptions", JSON.stringify(subscriptions));
+        } catch (storageError) {
+          console.error("Failed to save to localStorage:", storageError);
+        }
       }
 
       setShowToast(true);
       reset();
     } catch (error) {
-      console.error("Failed to submit subscription form:", error);
+      console.error("Failed to submit subscription form:", error instanceof Error ? error.message : String(error));
       // Still show success to user even if Formspree fails
       // (localStorage backup will preserve the data)
       setShowToast(true);
