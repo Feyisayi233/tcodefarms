@@ -8,8 +8,8 @@ import { EmailSubscriptionForm } from "@/components/email-subscription-form";
 import { ConsultationForm } from "@/components/consultation-form";
 import { Phone, Package, CheckCircle2, Sparkles, Egg } from "lucide-react";
 
-const EGG_CRATE_PRICE_HIGH = 4800;
-const EGG_CRATE_PRICE_LOW = 4300;
+const EGG_CRATE_PRICE_HIGH = 5200;
+const EGG_CRATE_PRICE_LOW = 5000;
 
 export default function ProductsPage() {
   const prefersReducedMotion = useReducedMotion();

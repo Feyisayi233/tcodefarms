@@ -380,8 +380,8 @@ export default function Home() {
               <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2">Table Eggs</h3>
               <p className="text-gray-600 mb-4 text-sm">Fresh eggs, crate of 30 pieces</p>
               <div className="mb-5 bg-cream-100 rounded-xl p-3">
-                <p className="text-2xl sm:text-3xl font-bold text-[#008751]">₦4,800</p>
-                <p className="text-lg sm:text-xl font-bold text-[#008751]/70">₦4,300</p>
+                <p className="text-2xl sm:text-3xl font-bold text-[#008751]">₦5,200</p>
+                <p className="text-lg sm:text-xl font-bold text-[#008751]/70">₦5,000</p>
               </div>
               <Link href="/products">
                 <Button className="w-full bg-[#008751] hover:bg-[#006B3F] text-white border-0">
