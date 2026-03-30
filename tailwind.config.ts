@@ -13,10 +13,25 @@ const config: Config = {
         primary: {
           DEFAULT: "#008751",
           dark: "#006B3F",
+          light: "#00b366",
         },
-        gold: {
-          DEFAULT: "#FFD700",
-          dark: "#E6C200",
+        cream: {
+          50: "#FFFEF7",
+          100: "#FFF8E7",
+          200: "#FFEFC2",
+          300: "#FFE49A",
+        },
+        amber: {
+          warm: "#D4A017",
+          light: "#F5C543",
+        },
+        earth: {
+          DEFAULT: "#5C4033",
+          light: "#8B6914",
+        },
+        barn: {
+          DEFAULT: "#8B2500",
+          light: "#A0522D",
         },
       },
     },
@@ -24,4 +39,3 @@ const config: Config = {
   plugins: [],
 };
 export default config;
-
