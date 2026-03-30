@@ -52,8 +52,8 @@ export default function Home() {
             sizes="100vw"
           />
           {/* Warm overlay with depth */}
-          <div className="absolute inset-0 bg-gradient-to-b from-[#5C4033]/70 via-[#006B3F]/80 to-[#008751]/90" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#5C4033]/30 via-transparent to-[#D4A017]/10" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#5C4033]/90 via-[#006B3F]/90 to-[#008751]/95" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#5C4033]/40 via-transparent to-[#D4A017]/15" />
         </motion.div>
 
         {/* Decorative egg shapes */}
