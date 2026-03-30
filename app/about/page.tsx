@@ -2,16 +2,28 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { CheckCircle2, MapPin, Users, Package, Award, Calendar } from "lucide-react";
+import { CheckCircle2, MapPin, Users, Package, Award, Calendar, Egg, Leaf, Shield, Heart } from "lucide-react";
 import { AnimatedCounter } from "@/components/animated-counter";
 
 export default function AboutPage() {
   return (
-    <div className="bg-white min-h-screen">
+    <div className="bg-cream-50 min-h-screen">
       {/* Hero Section */}
-      <section className="relative py-12 sm:py-16 md:py-24 pt-24 sm:pt-28 md:pt-32 bg-gradient-to-b from-[#008751] to-[#006B3F] grain overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.1),transparent_50%)]" />
+      <section className="relative py-16 sm:py-20 md:py-28 pt-28 sm:pt-32 md:pt-36 overflow-hidden wave-divider">
+        <div className="absolute inset-0 bg-gradient-to-b from-[#5C4033] via-[#5C4033] to-[#3D2B22]" />
+        <div className="absolute inset-0 opacity-5" style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Ccircle cx='20' cy='20' r='2'/%3E%3C/g%3E%3C/svg%3E")`,
+        }} />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6 }}
+            className="inline-flex items-center gap-2 px-4 py-2 mb-6 bg-[#D4A017]/20 rounded-full border border-[#D4A017]/30"
+          >
+            <Egg className="h-4 w-4 text-[#F5C543]" />
+            <span className="text-xs sm:text-sm font-semibold text-[#F5C543] tracking-wide">Our Story</span>
+          </motion.div>
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -24,31 +36,32 @@ export default function AboutPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/90 font-semibold gold-accent px-2"
+            className="text-base sm:text-lg md:text-xl lg:text-2xl text-cream-200/80 max-w-2xl mx-auto"
           >
-            From Hatch to Harvest – We Deliver Excellence
+            15 years of delivering farm-fresh excellence to Lagos State
           </motion.p>
         </div>
       </section>
 
-      {/* Main Content */}
-      <section className="py-12 sm:py-16 md:py-24 grain relative bg-gray-50">
+      {/* Story Section */}
+      <section className="py-16 sm:py-20 md:py-28 grain relative bg-cream-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 md:gap-12 items-center mb-12 sm:mb-16 md:mb-20">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 md:gap-16 items-center mb-16 sm:mb-20 md:mb-28">
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 gradient-text">Our Story</h2>
-              <p className="text-gray-600 text-base sm:text-lg mb-3 sm:mb-4 leading-relaxed">
+              <span className="inline-block text-[#D4A017] text-sm font-semibold uppercase tracking-widest mb-3">How It Started</span>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 gradient-text">Our Journey</h2>
+              <p className="text-gray-600 text-base sm:text-lg mb-4 leading-relaxed">
                 Tcode Farms has been a cornerstone of the poultry industry in Lagos
-                State for over <span className="text-[#008751] font-semibold"><AnimatedCounter value={15} suffix=" years" className="text-[#008751]" /></span>. What started as a small operation has grown
+                State for over <span className="text-[#008751] font-semibold"><AnimatedCounter value={15} suffix=" years" className="text-[#008751]" /></span>. What started as a small backyard operation has grown
                 into one of the largest layer farms in the state, with <span className="text-[#008751] font-semibold"><AnimatedCounter value={7000} suffix=" layers" className="text-[#008751]" /></span>
                 producing high-quality eggs for the Lagos market.
               </p>
-              <p className="text-gray-600 text-base sm:text-lg mb-3 sm:mb-4 leading-relaxed">
+              <p className="text-gray-600 text-base sm:text-lg mb-4 leading-relaxed">
                 Our commitment to excellence, quality, and sustainable farming
                 practices has made us a trusted name in the poultry industry. We
                 take pride in every aspect of our operation, from the care of our
@@ -67,68 +80,73 @@ export default function AboutPage() {
               transition={{ duration: 0.8 }}
               className="relative"
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-[#008751]/20 to-transparent rounded-2xl blur-2xl" />
+              <div className="absolute -top-4 -left-4 w-20 h-20 border-t-4 border-l-4 border-[#D4A017]/30 rounded-tl-3xl" />
+              <div className="absolute -bottom-4 -right-4 w-20 h-20 border-b-4 border-r-4 border-[#008751]/30 rounded-br-3xl" />
               <Image
                 src="https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?w=800&q=75"
-                alt="Farm exterior"
+                alt="Tcode Farms poultry house"
                 width={800}
                 height={600}
-                className="rounded-2xl shadow-2xl relative z-10"
+                className="rounded-2xl shadow-xl relative z-10"
                 unoptimized
                 loading="lazy"
               />
+              <div className="absolute -bottom-6 left-6 z-20 bg-[#008751] text-white rounded-2xl px-5 py-3 shadow-lg">
+                <p className="text-2xl sm:text-3xl font-bold">Est. 2011</p>
+                <p className="text-xs sm:text-sm text-white/80">Oriokuta, Imota</p>
+              </div>
             </motion.div>
           </div>
 
-          {/* Achievements */}
+          {/* Stats */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-12 mb-12 sm:mb-16 md:mb-20 shadow-lg border border-[#008751]/10"
+            className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 mb-16 sm:mb-20 md:mb-28"
           >
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-8 sm:mb-10 md:mb-12 text-center gradient-text">
-              Our Achievements
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
-              {[
-                { icon: Award, title: "Largest in Lagos", desc: "One of the largest layer farms in Lagos State" },
-                { icon: Package, title: "200 Crates Daily", desc: "Supplies 200 crates daily to Lagos market" },
-                { icon: Calendar, title: "15 Years Experience", desc: "Over a decade and a half in the business" },
-              ].map((achievement, idx) => (
-                <motion.div
-                  key={achievement.title}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: idx * 0.1 }}
-                  whileHover={{ scale: 1.05, y: -5 }}
-                  className="text-center bg-[#008751] rounded-2xl p-6 hover-lift"
-                >
-                  <achievement.icon className="h-12 w-12 text-white mx-auto mb-4" />
-                  <h3 className="text-xl font-bold text-white mb-2">{achievement.title}</h3>
-                  <p className="text-white/80">{achievement.desc}</p>
-                </motion.div>
-              ))}
-            </div>
+            {[
+              { icon: Egg, value: 7000, suffix: "+", label: "Layers in Production", color: "bg-[#008751]" },
+              { icon: Package, value: 200, suffix: "+", label: "Crates Daily", color: "bg-[#D4A017]" },
+              { icon: Calendar, value: 15, suffix: "+", label: "Years Experience", color: "bg-[#008751]" },
+              { icon: MapPin, value: 1, suffix: "", label: "Farm in Lagos", color: "bg-[#5C4033]" },
+            ].map((stat, idx) => (
+              <motion.div
+                key={stat.label}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: idx * 0.1 }}
+                className="farm-card p-5 sm:p-6 text-center"
+              >
+                <div className={`inline-flex items-center justify-center w-12 h-12 rounded-2xl ${stat.color}/10 mb-3`}>
+                  <stat.icon className={`h-6 w-6 ${stat.color === 'bg-[#D4A017]' ? 'text-[#D4A017]' : stat.color === 'bg-[#5C4033]' ? 'text-[#5C4033]' : 'text-[#008751]'}`} />
+                </div>
+                <p className="text-3xl sm:text-4xl font-bold text-gray-900 mb-1">
+                  <AnimatedCounter value={stat.value} suffix={stat.suffix} className="text-gray-900" />
+                </p>
+                <p className="text-gray-600 text-xs sm:text-sm">{stat.label}</p>
+              </motion.div>
+            ))}
           </motion.div>
 
           {/* Farm Details */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-20">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16 sm:mb-20 md:mb-28">
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <h2 className="text-4xl md:text-5xl font-bold mb-8 gradient-text">Farm Details</h2>
+              <span className="inline-block text-[#D4A017] text-sm font-semibold uppercase tracking-widest mb-3">The Details</span>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-8 gradient-text">Our Farm</h2>
               <ul className="space-y-4">
                 {[
                   { icon: MapPin, label: "Location", value: "Oriokuta, Imota, Lagos State, Nigeria" },
-                  { icon: Users, label: "Farm Size", value: "7,000 layers in production" },
-                  { icon: Package, label: "Daily Production", value: "200 crates of fresh eggs" },
-                  { icon: Calendar, label: "Years in Business", value: "15 years" },
+                  { icon: Users, label: "Farm Size", value: "7,000+ layers in production" },
+                  { icon: Package, label: "Daily Production", value: "200+ crates of fresh eggs" },
+                  { icon: Calendar, label: "Years in Business", value: "15+ years and counting" },
                 ].map((detail, idx) => (
                   <motion.li
                     key={detail.label}
@@ -136,11 +154,13 @@ export default function AboutPage() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: idx * 0.1 }}
-                    className="flex items-start gap-4 bg-white rounded-xl p-4 hover-lift shadow-md border border-[#008751]/10"
+                    className="farm-card flex items-start gap-4 p-4"
                   >
-                    <detail.icon className="h-6 w-6 text-[#008751] flex-shrink-0 mt-0.5" />
+                    <div className="w-10 h-10 rounded-xl bg-[#008751]/10 flex items-center justify-center flex-shrink-0">
+                      <detail.icon className="h-5 w-5 text-[#008751]" />
+                    </div>
                     <div>
-                      <strong className="text-[#008751] text-sm">{detail.label}:</strong>
+                      <strong className="text-[#D4A017] text-xs uppercase tracking-wider">{detail.label}</strong>
                       <p className="text-gray-700">{detail.value}</p>
                     </div>
                   </motion.li>
@@ -154,13 +174,12 @@ export default function AboutPage() {
               transition={{ duration: 0.8 }}
               className="relative"
             >
-              <div className="absolute inset-0 bg-gradient-to-l from-[#008751]/20 to-transparent rounded-2xl blur-2xl" />
               <Image
                 src="https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?w=800&q=75"
                 alt="Layers in battery cages"
                 width={800}
                 height={600}
-                className="rounded-2xl shadow-2xl relative z-10"
+                className="rounded-2xl shadow-xl"
                 unoptimized
                 loading="lazy"
               />
@@ -174,15 +193,16 @@ export default function AboutPage() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center gradient-text">
-              Our Values
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="text-center mb-10 sm:mb-12">
+              <span className="inline-block text-[#D4A017] text-sm font-semibold uppercase tracking-widest mb-3">What Drives Us</span>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold gradient-text">Our Values</h2>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
               {[
-                { title: "Quality First", desc: "We maintain the highest standards in all our operations, ensuring that every product meets our strict quality criteria." },
-                { title: "Customer Satisfaction", desc: "Our customers are at the heart of everything we do. We strive to exceed expectations with every interaction." },
-                { title: "Sustainable Practices", desc: "We are committed to sustainable farming practices that protect the environment while ensuring the welfare of our birds." },
-                { title: "Innovation", desc: "We continuously invest in modern farming techniques and technology to improve efficiency and product quality." },
+                { icon: Shield, title: "Quality First", desc: "We maintain the highest standards in all our operations, ensuring that every egg meets our strict quality criteria.", color: "text-[#008751]", bg: "bg-[#008751]/10" },
+                { icon: Heart, title: "Customer Satisfaction", desc: "Our customers are at the heart of everything we do. We strive to exceed expectations with every interaction.", color: "text-[#D4A017]", bg: "bg-[#D4A017]/10" },
+                { icon: Leaf, title: "Sustainable Practices", desc: "We are committed to sustainable farming practices that protect the environment while ensuring the welfare of our birds.", color: "text-[#008751]", bg: "bg-[#008751]/10" },
+                { icon: Award, title: "Innovation", desc: "We continuously invest in modern farming techniques and technology to improve efficiency and product quality.", color: "text-[#D4A017]", bg: "bg-[#D4A017]/10" },
               ].map((value, idx) => (
                 <motion.div
                   key={value.title}
@@ -190,13 +210,14 @@ export default function AboutPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: idx * 0.1 }}
-                  whileHover={{ scale: 1.02, y: -5 }}
-                  className="flex items-start gap-4 bg-white rounded-2xl p-6 hover-lift shadow-md border border-[#008751]/10"
+                  className="farm-card flex items-start gap-4 p-6"
                 >
-                  <CheckCircle2 className="h-6 w-6 text-[#008751] flex-shrink-0 mt-1" />
+                  <div className={`w-12 h-12 rounded-2xl ${value.bg} flex items-center justify-center flex-shrink-0`}>
+                    <value.icon className={`h-6 w-6 ${value.color}`} />
+                  </div>
                   <div>
-                    <h3 className="text-xl font-semibold text-gray-900 mb-2">{value.title}</h3>
-                    <p className="text-gray-600 leading-relaxed">{value.desc}</p>
+                    <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">{value.title}</h3>
+                    <p className="text-gray-600 leading-relaxed text-sm sm:text-base">{value.desc}</p>
                   </div>
                 </motion.div>
               ))}
